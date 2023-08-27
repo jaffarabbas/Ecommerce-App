@@ -1,22 +1,39 @@
 <app-custom-banner *ngIf="isShowBanner" [class]="'contact_banner'" [bannerTitle]="'Contact Us'"></app-custom-banner>
 <!-- contact start -->
-<section class="contact">
+  <section class="about">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="contactHeader">
-                    <h1 class="secondaryHeading">Subscribe Our news Letter</h1>
-                    <p class="primaryParagraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about_side_1">
+                            <h3 class="primaryHeading">Contact us</h3>
+                            <h1 class="secondaryHeading">Any Query<br>Please Tell Us</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="maincontactfeilds">
+                            <form>
+                                <input class="contactInput" type="text" placeholder="Please enter your name"><br>
+                                <input class="contactInput" type="email" placeholder="Please enter your email address"><br>
+                                <div class="minicontactfeilds">
+                                    <input class="minicontactInput" type="text" placeholder="Please enter your phone">
+                                    <input class="minicontactInput" type="text" placeholder="Please enter your address">
+                                </div>
+                                <textarea class="contactInput" placeholder="Please enter your Message" name="" rows="3"></textarea><br>
+                                <input type="submit" class="btnStyle" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="contactfeilds">
-                    <form>
-                        <input class="contactInput" type="email" placeholder="Please enter your email address">
-                        <input type="submit" class="btnStyle" value="Subscribe">
-                    </form>
+            <div class="col-md-6 col-sm-12">
+                <div class="contact_side_2">
+                    <div class="map">
+                        <iframe src="https://maps.google.com/maps?q=rizvia&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
