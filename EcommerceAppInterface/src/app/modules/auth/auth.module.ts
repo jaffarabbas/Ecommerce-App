@@ -6,6 +6,8 @@ import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import {SharedComponentsModule} from "../../shared/shared-components/shared-components.module";
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
     AuthComponent,
     RegisterComponent,
     LoginComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    TermsAndConditionsComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        SharedComponentsModule
+    ]
 })
 export class AuthModule { }
