@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import {RouterLink} from "@angular/router";
 import { CustomBannerComponent } from './custom-banner/custom-banner.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { CustomSubmitComponent } from './custom-submit/custom-submit.component';
 
 
 
@@ -13,7 +14,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     HeaderComponent,
     FooterComponent,
     CustomBannerComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CustomSubmitComponent
   ],
     imports: [
         CommonModule,
