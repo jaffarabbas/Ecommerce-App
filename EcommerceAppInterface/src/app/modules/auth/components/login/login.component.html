@@ -1,1 +1,22 @@
-<p>login works!</p>
+<app-custom-banner *ngIf="isShowBanner" [class]="'login_banner'" [bannerTitle]="'Login'"></app-custom-banner>
+<!-- login start -->
+<section class="authPage">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+        <div class="auth">
+          <form>
+            <h1>Login</h1>
+            <input class="contactInput" type="email" placeholder="Email Address"><br>
+            <input class="contactInput" type="text" placeholder="Password"><br>
+            <input type="submit" class="btnStyle" value="Login">
+            <br>
+            <br>
+            <a routerLink="/auth/register">Create new Account</a>&nbsp;&nbsp;&nbsp;<a routerLink="/auth/login">Forget passowrd ?</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- login end -->
