@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {FormErrorMessage} from "../../interfaces/formFeildsErrorMessage/formErrorMessage";
 import {FormGroup} from "@angular/forms";
+import {FormErrorMessage} from "../../interfaces/formErrorMessage";
 
 @Injectable({
   providedIn: 'root'
