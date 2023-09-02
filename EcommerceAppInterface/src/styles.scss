@@ -30,6 +30,14 @@ body{
 a{
     cursor: pointer;
 }
+
+.error-message{
+    color: red;
+    font-size: 12px;
+    font-family: Poppins-Regular;
+    float: left;
+    padding-top: 3px;
+}
 /* header start*/
 
 
@@ -1220,7 +1228,7 @@ footer .container .row .col-md-12 ul li a i:hover {
         flex-direction: column;
         justify-content: space-between;
     }
-    
+
     .productDetialsPage .row .col-md-12 a{
         margin-right: 0;
         margin-top: 10px;
