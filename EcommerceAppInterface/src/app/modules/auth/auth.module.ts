@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import {SharedComponentsModule} from "../../shared/shared-components/shared-components.module";
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
     imports: [
         CommonModule,
         AuthRoutingModule,
-        SharedComponentsModule
+        SharedComponentsModule,
+        ReactiveFormsModule
     ]
 })
 export class AuthModule { }
