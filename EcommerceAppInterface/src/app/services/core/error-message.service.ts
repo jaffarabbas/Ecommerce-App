@@ -1,49 +1,54 @@
 import { Injectable } from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {FormErrorMessage} from "../../interfaces/formErrorMessage";
+import {ErrorMessages} from "../../utilities/constants/errorMessages";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorMessageService {
-  private errorMessage!: string;
-  public isErrorResolved: boolean = false;
-  constructor() { }
+  isFormValidate:boolean = false;
+  _error:FormErrorMessage[] = [];
+  _errorMessageList:any[] = [];
 
-  errorMessages(error:string):string{
-    return error;
-  }
-  get getErrorMessage(): string {
-    return this.errorMessage;
-  }
-
-  set setErrorMessage(errorMessage: string) {
-    this.errorMessage = errorMessage;
+  //filter error messages from errorMessages list and return global error message list
+  private generateErrorMessage(errorMessages: FormErrorMessage[]){
+    this._errorMessageList = [...errorMessages.map((errorMessage: FormErrorMessage) => {
+      return ErrorMessages.errorMessages.find((error) => {
+        return error.controlName === errorMessage.name && error.errorName === errorMessage.error;
+      });
+    })];
   }
 
-  getErrorMessageFromList(control:string,list:FormErrorMessage[]):string | null{
-    return list.find((item) => item.name === control)?.error || null;
-  }
-
-  setErrorMessageList(formGroup:FormGroup,errorMessage:FormErrorMessage[]){
-    for (let formControls in formGroup.controls) {
-      if(formGroup.get(formControls)?.value == ""){
-        this.isErrorResolved = false;
-        errorMessage.push({name:formControls,error:"required"})
-      }else if(formGroup.get(formControls)?.invalid) {
-        this.isErrorResolved = false;
-        //check form item if exist in error message list because of filled early
-        let error = errorMessage.filter((item) => item.name === formControls);
-        if(error.length > 0){
-          error.forEach((item) => {
-            item.error = "Invalid" || "";
+  //get form validation and return error messages
+  public checkFormValidation(formGroup: FormGroup){
+    this._error = [];
+    Object.keys(formGroup.controls).forEach(field => {
+    const control = formGroup?.get(field)!;
+    //check if control has errors
+      if(control.errors){
+        this.isFormValidate = false;
+        Object.keys(control.errors).forEach(keyError => {
+          this._error.push({
+            name: field,
+            error: keyError,
           });
-        }else{
-          errorMessage.push({name:formControls,error:"Invalid"});
-        }
+        });
+        //filter error messages from global errorMessages list
+        this.generateErrorMessage(this._error);
       }else{
-        this.isErrorResolved = true;
+        this.isFormValidate = true;
       }
-    }
+    });
+
+    console.log(this.error('email'));
+    console.log(this.error('password'));
+  }
+
+  //return error message from filtered global error message list by control name
+  public error(control:string) {
+    return this._errorMessageList.find((error) => {
+      return error.controlName === control;
+    })?.message;
   }
 }
