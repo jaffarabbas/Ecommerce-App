@@ -7,9 +7,18 @@
         <div class="auth">
           <form [formGroup]="formGroup" (ngSubmit)="submit()">
             <h1>Login</h1>
-            <input [formControlName]="'email'" class="contactInput" type="email" placeholder="Email Address"><br>
-
-            <input [formControlName]="'password'" class="contactInput" type="text" placeholder="Password"><br>
+            <app-custom-input [formGroup]="formGroup"
+                              [controlName]="'email'"
+                              [type]="'email'"
+                              [placeholder]="'Email Address'"
+                              [errorMessage]="this.errorMessageService.error('email')">
+            </app-custom-input>
+            <app-custom-input [formGroup]="formGroup"
+                              [controlName]="'password'"
+                              [type]="'password'"
+                              [placeholder]="'Password'"
+                              [errorMessage]="this.errorMessageService.error('password')">
+            </app-custom-input><br>
             <input type="submit" class="btnStyle" value="Login">
             <br>
             <br>
