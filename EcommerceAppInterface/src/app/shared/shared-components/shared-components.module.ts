@@ -7,6 +7,8 @@ import { CustomBannerComponent } from './custom-banner/custom-banner.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CustomSubmitComponent } from './custom-submit/custom-submit.component';
 import { ErrorHandlerComponent } from './error-handler/error-handler.component';
+import { CustomInputComponent } from './custom-input/custom-input.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -17,18 +19,21 @@ import { ErrorHandlerComponent } from './error-handler/error-handler.component';
     CustomBannerComponent,
     ProductCardComponent,
     CustomSubmitComponent,
-    ErrorHandlerComponent
+    ErrorHandlerComponent,
+    CustomInputComponent
   ],
-    imports: [
-        CommonModule,
-        RouterLink
-    ],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ReactiveFormsModule
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
     CustomBannerComponent,
     ProductCardComponent,
-    ErrorHandlerComponent
+    ErrorHandlerComponent,
+    CustomInputComponent
   ]
 })
 export class SharedComponentsModule { }
