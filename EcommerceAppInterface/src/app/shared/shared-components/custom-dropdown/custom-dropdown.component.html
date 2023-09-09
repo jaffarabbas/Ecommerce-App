@@ -1,0 +1,16 @@
+<div [formGroup]="formGroup">
+  <select style="overflow-y:scroll"
+          (change)="onChange.emit()"
+          [value]="value"
+          (click)="detect($event)"
+          [class]="class"
+          [formGroup]="formGroup"
+          [formControlName]="controlName">
+    <option *ngIf="defaultValue == null" value="" disabled selected>{{placeholder}}</option>
+    <option *ngIf="defaultValue != null" [value]="defaultValue.id" selected>{{ defaultValue.name }}</option>
+    <option *ngFor="let item of dropdownOptions" [value]="item.id">{{ item.name }}</option>
+  </select>
+  <span [class]="'error-message'" *ngIf="this.errorMessage != null">
+   {{this.errorMessage}}
+  </span>
+</div>
