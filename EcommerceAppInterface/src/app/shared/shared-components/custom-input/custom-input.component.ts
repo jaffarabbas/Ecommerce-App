@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 
 @Component({
@@ -14,11 +14,12 @@ export class CustomInputComponent {
   @Input() placeholder: string = "";
   @Input() label: string = "";
   @Input() isRequired: boolean = false;
-  @Input() errorMessage:string = "";
+  @Input() errorMessage!:string | null;
 
-  detectChanges(event: any) {
+
+  detect(event: any) {
     if (event.target.value.length > 0) {
-      this.errorMessage = "";
+      this.errorMessage = null;
     }
   }
 }
