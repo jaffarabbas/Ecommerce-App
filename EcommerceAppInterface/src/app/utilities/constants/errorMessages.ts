@@ -18,6 +18,26 @@ export class ErrorMessages{
       controlName: "password",
       errorName: "minlength",
       message: "Password must be at least 8 characters",
+    },{
+      controlName: "confirmPassword",
+      errorName: "required",
+      message: "Confirm password is required",
+    },{
+      controlName: "confirmPassword",
+      errorName: "notMatch",
+      message: "Confirm password is not match",
+    },{
+      controlName: "firstName",
+      errorName: "required",
+      message: "First name is required",
+    },{
+      controlName: "lastName",
+      errorName: "required",
+      message: "Last name is required",
+    },{
+      controlName: "accountType",
+      errorName: "required",
+      message: "Account type is required",
     }
   ]
 }
