@@ -6,32 +6,49 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
                 <div class="auth">
-                    <form>
+                    <form  [formGroup]="formGroup" (submit)="submit()">
                         <h1>Signup</h1>
                         <div class="act">
-                            <p>Create</p>
-                            <select class="contactInput">
-                    <option hidden="true">Select Account</option>
-                    <option disabled="disabled" default="true">Select Account</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
+                          <p>Create</p>
+                          <app-custom-dropdown class="selectAccountType"
+                                               [class]="'contactInput'"
+                                               [placeholder]="'Enter your Role'"
+                                               [controlName]="'accountType'"
+                                               [formGroup]="formGroup"
+                                               [dropdownOptions]="accType"
+                                               [errorMessage]="this.errorMessageService.error('accountType')!">
+                          </app-custom-dropdown>
                         </div>
-                        <input class="contactInput" type="email" placeholder="Email Address"><br>
-                        <input class="contactInput" type="text" placeholder="Password"><br>
-                        <input class="contactInput" type="text" placeholder="Re type Password"><br>
-                        <input class="contactInput" type="text" placeholder="Firstname"><br>
-                        <input class="contactInput" type="text" placeholder="Lastname"><br>
-                        <select class="contactInput">
-                <option hidden="true">Select Type</option>
-                <option disabled="disabled" default="true">Select Type</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+                      <app-custom-input [formGroup]="formGroup"
+                                        [controlName]="'email'"
+                                        [type]="'email'"
+                                        [placeholder]="'Enter Email Address'"
+                                        [errorMessage]="this.errorMessageService.error('email')!">
+                      </app-custom-input>
+                      <app-custom-input [formGroup]="formGroup"
+                                        [controlName]="'password'"
+                                        [type]="'password'"
+                                        [placeholder]="'Enter Password'"
+                                        [errorMessage]="this.errorMessageService.error('password')!">
+                      </app-custom-input>
+                      <app-custom-input [formGroup]="formGroup"
+                                        [controlName]="'confirmPassword'"
+                                        [type]="'password'"
+                                        [placeholder]="'Re-Enter Password'"
+                                        [errorMessage]="this.errorMessageService.error('confirmPassword')!">
+                      </app-custom-input>
+                      <app-custom-input [formGroup]="formGroup"
+                                        [controlName]="'firstName'"
+                                        [type]="'text'"
+                                        [placeholder]="'Enter First Name'"
+                                        [errorMessage]="this.errorMessageService.error('firstName')!">
+                      </app-custom-input>
+                      <app-custom-input [formGroup]="formGroup"
+                                        [controlName]="'lastName'"
+                                        [type]="'text'"
+                                        [placeholder]="'Enter Last Name'"
+                                        [errorMessage]="this.errorMessageService.error('lastName')!">
+                      </app-custom-input>
                         <div class="cbi">
                             <input type="checkbox">&nbsp;
                             <p>By registering you agree our <b><a routerLink="/auth/termsandconditions">Terms of user</a></b></p>
