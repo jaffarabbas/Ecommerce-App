@@ -11,8 +11,8 @@ import {FormErrorMessage} from "../../../../interfaces/formErrorMessage";
 })
 export class LoginComponent {
   @Input() isShowBanner: boolean = true;
-  errorMessage:FormErrorMessage[] = [];
   spinner:boolean = false;
+
   constructor(public errorMessageService:ErrorMessageService) {
   }
 
@@ -27,12 +27,10 @@ export class LoginComponent {
     ]),
   });
 
-  async submit(){
+  submit(){
     this.errorMessageService.checkFormValidation(this.formGroup);
     if(this.errorMessageService.isFormValidate){
       console.log(this.formGroup.value);
     }
   }
-
-  protected readonly ErrorMessages = ErrorMessages;
 }
