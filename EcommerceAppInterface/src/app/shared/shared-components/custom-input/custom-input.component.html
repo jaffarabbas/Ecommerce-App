@@ -1,5 +1,5 @@
 <div [formGroup]="formGroup">
-  <input (input)="detect($event)" [formControlName]="controlName"
+  <input [formControlName]="controlName"
          class="contactInput"
          [type]="type" [placeholder]="placeholder">
   <span [class]="'error-message'" *ngIf="this.errorMessage != null">
