@@ -7,10 +7,8 @@ import {ErrorMessages} from "../../utilities/constants/errorMessages";
   providedIn: 'root'
 })
 export class ErrorMessageService {
-  isFormValidate:boolean = false;
+  isFormValidate:boolean = true;
   _error:FormErrorMessage[] = [];
-  // _errorMessageList:any[] = [];
-  // errorMessage:string = "";
 
   //filter error messages from errorMessages list and return global error message list
   private generateErrorMessage(errorMessages: FormErrorMessage[]){
@@ -27,7 +25,6 @@ export class ErrorMessageService {
     formGroup.invalid ? this.isFormValidate = false : this.isFormValidate = true;
     Object.keys(formGroup.controls).forEach(field => {
     const control = formGroup?.get(field)!;
-    //check if control has errors
       if(control.errors){
         console.log(control.errors)
         console.log(field)
@@ -39,30 +36,17 @@ export class ErrorMessageService {
         });
         this.isFormValidate = false;
       }
+      this.validateConfirmPassword(formGroup);
     });
   }
-   passwordMatchValidator(control: FormGroup) {
-    const password = control?.get('password')!.value;
-    const confirmPassword = control?.get('confirmPassword')!.value;
-    if(password != null && confirmPassword != null){
-      if (password !== confirmPassword) {
-        control?.get('confirmPassword')!.setErrors({ notMatch: true }); // Set the error explicitly for confirmPassword control
-      } else {
-        control?.get('confirmPassword')!.setErrors(null); // Clear the error if passwords match
-      }
-    }
-    return null;
-  }
 
-  private confirmPasswordValidation(formGroup: FormGroup){
-    console.log('asdasd')
-    if(formGroup.get("password")?.value != formGroup.get("confirmPassword")?.value){
+  private validateConfirmPassword(formGroup: FormGroup){
+    if(formGroup.controls["password"].value !== formGroup.controls["confirmPassword"].value){
       this._error.push({
         name: "confirmPassword",
         error: "notMatch",
       });
       this.isFormValidate = false;
-      console.log(this._error)
     }
   }
 
