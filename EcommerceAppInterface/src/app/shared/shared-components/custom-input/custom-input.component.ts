@@ -14,12 +14,5 @@ export class CustomInputComponent {
   @Input() placeholder: string = "";
   @Input() label: string = "";
   @Input() isRequired: boolean = false;
-  @Input() errorMessage!:string | null;
-
-
-  detect(event: any) {
-    if (event.target.value.length > 0) {
-      this.errorMessage = null;
-    }
-  }
+  @Input() errorMessage:string = "";
 }
