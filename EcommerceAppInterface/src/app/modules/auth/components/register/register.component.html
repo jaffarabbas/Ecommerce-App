@@ -49,7 +49,7 @@
                                         [placeholder]="'Enter Last Name'"
                                         [errorMessage]="this.errorMessageService.error('lastName')!">
                       </app-custom-input>
-                        <div class="cbi">
+                        <div class="cbi" [ngClass]="{'errorCbi': !this.errorMessageService.isFormValidate}">
                             <input type="checkbox">&nbsp;
                             <p>By registering you agree our <b><a routerLink="/auth/termsandconditions">Terms of user</a></b></p>
                         </div>
