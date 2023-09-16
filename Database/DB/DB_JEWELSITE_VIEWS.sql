@@ -1,0 +1,60 @@
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `SHOW_TEMP_USER_ORDER_ALL_DATA`
+-- (See below for the actual view)
+--
+--CREATE TABLE SHOW_TEMP_USER_ORDER_ALL_DATA (
+--id INT IDENTITY(1,1) PRIMARY KEY
+--,user_token varchar(255)
+--,name varchar(100)
+--,email varchar(233)
+--,phone varchar(100)
+--,address varchar(250)
+--,iid INT
+--,quantity INT
+--,total_price DECIMAL(10,2)
+--,status BIT
+--,orderat datetime
+--,pid INT
+--,product name varchar(100)
+--,description varchar(255)
+--,price DECIMAL(10,2)
+--,image VARCHAR(MAX)
+--,product quantity INT
+--,product status BIT DEFAULT 1 NOT NULL
+--,created_on timestamp
+--,cid INT
+--);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `SHOW_USER_ORDER_ALL_DATA`
+-- (See below for the actual view)
+--
+--CREATE TABLE SHOW_USER_ORDER_ALL_DATA (
+--oid INT IDENTITY(1,1) PRIMARY KEY
+--,user_id INT
+--,user_name varchar(201)
+--,email varchar(233)
+--,user_status BIT
+--,user_created datetime DEFAULT GETDATE() NOT NULL 
+--,uid INT
+--,iid INT
+--,order_quantity INT
+--,total_price DECIMAL(10,2)
+--,uo_status BIT
+--,order_created_at datetime DEFAULT GETDATE() NOT NULL 
+--,product_id INT
+--,name varchar(100)
+--,image VARCHAR(MAX)
+--,price DECIMAL(10,2)
+--,inventory INT
+--,category INT
+--,product_status BIT DEFAULT 1 NOT NULL
+--,product_created_at timestamp
+--);
+
+-- --------------------------------------------------------
