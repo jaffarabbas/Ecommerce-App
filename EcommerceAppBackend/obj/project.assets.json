@@ -2148,6 +2148,38 @@
           }
         }
       },
+      "EcommerceAppServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "EcommerseAppDtos": "1.0.0",
+          "GlobalExceptionHandler": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.11",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.11",
+          "Microsoft.EntityFrameworkCore": "7.0.11",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/EcommerceAppServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EcommerceAppServices.dll": {}
+        }
+      },
+      "EcommerseAppDtos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/EcommerseAppDtos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EcommerseAppDtos.dll": {}
+        }
+      },
       "GlobalExceptionHandler/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -5140,6 +5172,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "EcommerceAppServices/1.0.0": {
+      "type": "project",
+      "path": "../EcommerceAppDtos/EcommerceAppServices.csproj",
+      "msbuildProject": "../EcommerceAppDtos/EcommerceAppServices.csproj"
+    },
+    "EcommerseAppDtos/1.0.0": {
+      "type": "project",
+      "path": "../EcommerseAppServices/EcommerseAppDtos.csproj",
+      "msbuildProject": "../EcommerseAppServices/EcommerseAppDtos.csproj"
+    },
     "GlobalExceptionHandler/1.0.0": {
       "type": "project",
       "path": "../GlobalExceptionHandler/GlobalExceptionHandler.csproj",
@@ -5148,6 +5190,8 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "EcommerceAppServices >= 1.0.0",
+      "EcommerseAppDtos >= 1.0.0",
       "GlobalExceptionHandler >= 1.0.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.9",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.11",
@@ -5189,6 +5233,12 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "J:\\GitHub\\Ecommerce-App\\EcommerceAppDtos\\EcommerceAppServices.csproj": {
+              "projectPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppDtos\\EcommerceAppServices.csproj"
+            },
+            "J:\\GitHub\\Ecommerce-App\\EcommerseAppServices\\EcommerseAppDtos.csproj": {
+              "projectPath": "J:\\GitHub\\Ecommerce-App\\EcommerseAppServices\\EcommerseAppDtos.csproj"
+            },
             "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj": {
               "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj"
             }

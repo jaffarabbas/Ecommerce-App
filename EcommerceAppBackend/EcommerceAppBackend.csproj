@@ -26,10 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\EcommerceAppDtos\EcommerceAppServices.csproj" />
+    <ProjectReference Include="..\EcommerseAppServices\EcommerseAppDtos.csproj" />
     <ProjectReference Include="..\GlobalExceptionHandler\GlobalExceptionHandler.csproj" />
   </ItemGroup>
 
