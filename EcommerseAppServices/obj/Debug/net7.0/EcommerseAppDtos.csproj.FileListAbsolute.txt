@@ -1,0 +1,12 @@
+J:\GitHub\Ecommerce-App\EcommerseAppServices\bin\Debug\net7.0\EcommerseAppDtos.deps.json
+J:\GitHub\Ecommerce-App\EcommerseAppServices\bin\Debug\net7.0\EcommerseAppDtos.dll
+J:\GitHub\Ecommerce-App\EcommerseAppServices\bin\Debug\net7.0\EcommerseAppDtos.pdb
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.csproj.AssemblyReference.cache
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.GeneratedMSBuildEditorConfig.editorconfig
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.AssemblyInfoInputs.cache
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.AssemblyInfo.cs
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.csproj.CoreCompileInputs.cache
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.dll
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\refint\EcommerseAppDtos.dll
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\EcommerseAppDtos.pdb
+J:\GitHub\Ecommerce-App\EcommerseAppServices\obj\Debug\net7.0\ref\EcommerseAppDtos.dll
