@@ -1,0 +1,12 @@
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.csproj.AssemblyReference.cache
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.GeneratedMSBuildEditorConfig.editorconfig
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.AssemblyInfoInputs.cache
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.AssemblyInfo.cs
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.csproj.CoreCompileInputs.cache
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\bin\Debug\net7.0\GlobalExceptionHandler.deps.json
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\bin\Debug\net7.0\GlobalExceptionHandler.dll
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\bin\Debug\net7.0\GlobalExceptionHandler.pdb
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.dll
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\refint\GlobalExceptionHandler.dll
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\GlobalExceptionHandler.pdb
+J:\GitHub\Ecommerce-App\GlobalExceptionHandler\obj\Debug\net7.0\ref\GlobalExceptionHandler.dll
