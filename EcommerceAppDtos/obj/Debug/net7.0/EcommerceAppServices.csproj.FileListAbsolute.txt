@@ -1,0 +1,14 @@
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\bin\Debug\net7.0\EcommerceAppServices.deps.json
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\bin\Debug\net7.0\EcommerceAppServices.runtimeconfig.json
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\bin\Debug\net7.0\EcommerceAppServices.dll
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\bin\Debug\net7.0\EcommerceAppServices.pdb
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.csproj.AssemblyReference.cache
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.GeneratedMSBuildEditorConfig.editorconfig
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.AssemblyInfoInputs.cache
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.AssemblyInfo.cs
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.csproj.CoreCompileInputs.cache
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.dll
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\refint\EcommerceAppServices.dll
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.pdb
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\EcommerceAppServices.genruntimeconfig.cache
+J:\GitHub\Ecommerce-App\EcommerceAppDtos\obj\Debug\net7.0\ref\EcommerceAppServices.dll
