@@ -26,9 +26,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EcommerceAppDtos\EcommerceAppServices.csproj" />
-    <ProjectReference Include="..\EcommerseAppServices\EcommerseAppDtos.csproj" />
     <ProjectReference Include="..\GlobalExceptionHandler\GlobalExceptionHandler.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\AccountTypeServices\" />
+    <Folder Include="Services\AdminServices\" />
+    <Folder Include="Services\CategoriesServices\" />
+    <Folder Include="Services\ProductServices\" />
+    <Folder Include="Services\TempUserOrderServices\" />
+    <Folder Include="Services\UserOrderServices\" />
+    <Folder Include="Services\UsersServices\" />
   </ItemGroup>
 
 </Project>

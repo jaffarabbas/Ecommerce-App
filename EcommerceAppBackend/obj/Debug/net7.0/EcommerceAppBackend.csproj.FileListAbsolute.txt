@@ -1,9 +1,3 @@
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.csproj.AssemblyReference.cache
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.GeneratedMSBuildEditorConfig.editorconfig
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.AssemblyInfoInputs.cache
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.AssemblyInfo.cs
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.csproj.CoreCompileInputs.cache
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.MvcApplicationPartsAssemblyInfo.cache
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\appsettings.Development.json
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\appsettings.json
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\EcommerceAppBackend.exe
@@ -72,6 +66,13 @@ J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\runtimes\win\lib\ne
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\GlobalExceptionHandler.dll
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\GlobalExceptionHandler.pdb
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.csproj.AssemblyReference.cache
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.GeneratedMSBuildEditorConfig.editorconfig
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.AssemblyInfoInputs.cache
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.AssemblyInfo.cs
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.csproj.CoreCompileInputs.cache
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.MvcApplicationPartsAssemblyInfo.cs
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.MvcApplicationPartsAssemblyInfo.cache
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\staticwebassets\msbuild.EcommerceAppBackend.Microsoft.AspNetCore.StaticWebAssets.props
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\staticwebassets\msbuild.build.EcommerceAppBackend.props
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.EcommerceAppBackend.props
@@ -86,8 +87,3 @@ J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\refint\EcommerceApp
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.pdb
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.genruntimeconfig.cache
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\ref\EcommerceAppBackend.dll
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.MvcApplicationPartsAssemblyInfo.cs
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\EcommerceAppServices.dll
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\EcommerseAppDtos.dll
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\EcommerceAppServices.pdb
-J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\EcommerseAppDtos.pdb
