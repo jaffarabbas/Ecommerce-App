@@ -49,7 +49,7 @@ namespace GlobalErrorHandling.Confriguations
                 case KeyNotFoundException:
                     status = HttpStatusCode.NotFound;
                     break;
-                case BadReuestException:
+                case BadRequestException:
                     status = HttpStatusCode.BadRequest;
                     break;
                 case NotImplementedException:

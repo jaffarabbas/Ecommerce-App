@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zD6cam/JCknKIb+RiFEiedffbOMNEsq4SUYT0H5ty4Pkxx1AderIxTOHkBvrFLUGdoKjh+3Y9DlfMilOBsfimg==",
+  "dgSpecHash": "Q759OekJM6Bv8F+TalZGq7paufxksyoLSAmWAmx8cbegIy0/0dQFtoUA6HqSbfYUZ3EfEVTE0naaVg30Cm5U8Q==",
   "success": true,
   "projectFilePath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DARKLORD\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DARKLORD\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\DARKLORD\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\DARKLORD\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

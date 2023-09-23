@@ -1,7 +1,7 @@
 ﻿namespace GlobalErrorHandling.Exceptions
 {
-    public class BadReuestException : Exception
+    public class BadRequestException : Exception
     {
-        public BadReuestException(string msg) : base(msg) { }
+        public BadRequestException(string msg) : base(msg) { }
     }
 }
