@@ -5224,9 +5224,6 @@
           "projectReferences": {
             "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj": {
               "projectPath": "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj"
-            },
-            "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj": {
-              "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj"
             }
           }
         }
