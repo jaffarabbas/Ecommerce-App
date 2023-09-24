@@ -24,10 +24,11 @@ namespace EcommerceAppBackend.Repositories
            {
                randomnumbergenerator.GetBytes(randomnumber);
                string RefreashToken = Convert.ToBase64String(randomnumber);
-               var _user = _context.RefreshTokens.FirstOrDefault(data => data.Ruid == uuid);
-               if (_user != null)
+               var _token = _context.RefreshTokens.FirstOrDefault(data => data.Ruid == uuid);
+               if (_token != null)
                {
-                   _user.RefreshToken1 = RefreashToken;
+                    _token.RefreshToken1 = RefreashToken;
+                   _context.RefreshTokens.Update(_token);
                    _context.SaveChanges();
                }
                else

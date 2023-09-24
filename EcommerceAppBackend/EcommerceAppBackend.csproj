@@ -27,8 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Custom-Middleware-Collection\CustomMiddlewareCollection\CustomMiddlewareCollection.csproj" />
-    <ProjectReference Include="..\GlobalExceptionHandler\CustomMiddlewareCollection.csproj" />
+    <ProjectReference Include="J:\GitHub\Custom-Middleware-Collection\CustomMiddlewareCollection\CustomMiddlewareCollection.csproj" />
   </ItemGroup>
 
   <ItemGroup>
