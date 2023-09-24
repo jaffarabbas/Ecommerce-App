@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceAppBackend", "EcommerceAppBackend.csproj", "{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomMiddlewareCollection", "..\GlobalExceptionHandler\CustomMiddlewareCollection.csproj", "{36FC89DE-F495-465C-9B41-90D9E91EC4D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomMiddlewareCollection", "..\..\Custom-Middleware-Collection\CustomMiddlewareCollection\CustomMiddlewareCollection.csproj", "{2D4B6345-8086-4538-AF82-474357968264}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}.Release|Any CPU.Build.0 = Release|Any CPU
-		{36FC89DE-F495-465C-9B41-90D9E91EC4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36FC89DE-F495-465C-9B41-90D9E91EC4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36FC89DE-F495-465C-9B41-90D9E91EC4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36FC89DE-F495-465C-9B41-90D9E91EC4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4B6345-8086-4538-AF82-474357968264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4B6345-8086-4538-AF82-474357968264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4B6345-8086-4538-AF82-474357968264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4B6345-8086-4538-AF82-474357968264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

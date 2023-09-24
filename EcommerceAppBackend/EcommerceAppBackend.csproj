@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Custom-Middleware-Collection\CustomMiddlewareCollection\CustomMiddlewareCollection.csproj" />
     <ProjectReference Include="..\GlobalExceptionHandler\CustomMiddlewareCollection.csproj" />
   </ItemGroup>
 

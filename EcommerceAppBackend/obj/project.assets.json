@@ -5174,8 +5174,8 @@
     },
     "CustomMiddlewareCollection/1.0.0": {
       "type": "project",
-      "path": "../GlobalExceptionHandler/CustomMiddlewareCollection.csproj",
-      "msbuildProject": "../GlobalExceptionHandler/CustomMiddlewareCollection.csproj"
+      "path": "../../Custom-Middleware-Collection/CustomMiddlewareCollection/CustomMiddlewareCollection.csproj",
+      "msbuildProject": "../../Custom-Middleware-Collection/CustomMiddlewareCollection/CustomMiddlewareCollection.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5222,6 +5222,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj": {
+              "projectPath": "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj"
+            },
             "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj": {
               "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj"
             }
