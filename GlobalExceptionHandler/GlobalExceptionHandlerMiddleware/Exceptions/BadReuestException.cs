@@ -1,4 +1,4 @@
-﻿namespace GlobalErrorHandling.Exceptions
+﻿namespace CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions
 {
     public class BadRequestException : Exception
     {

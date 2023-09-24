@@ -1,13 +1,13 @@
-﻿using GlobalErrorHandling.Exceptions;
+﻿using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
-using KeyNotFoundException = GlobalErrorHandling.Exceptions.KeyNotFoundException;
-using NotImplementedException = GlobalErrorHandling.Exceptions.NotImplementedException;
-using UnAuthorizedAccessException = GlobalErrorHandling.Exceptions.UnAuthorizedAccessException;
+using KeyNotFoundException = CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions.KeyNotFoundException;
+using NotImplementedException = CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions.NotImplementedException;
+using UnAuthorizedAccessException = CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions.UnAuthorizedAccessException;
 
-namespace GlobalErrorHandling.Confriguations
+namespace CustomMiddlewareCollection.GlobalExceptionHandler.Confriguations
 {
     public class GlobalExceptionsHandlingMiddleware
     {
@@ -25,7 +25,7 @@ namespace GlobalErrorHandling.Confriguations
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(context,ex);
+                await HandleExceptionAsync(context, ex);
             }
         }
 
