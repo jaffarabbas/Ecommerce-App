@@ -2164,17 +2164,18 @@
           }
         }
       },
-      "GlobalExceptionHandler/1.0.0": {
+      "CustomMiddlewareCollection/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Microsoft.AspNetCore": "2.2.0"
+          "Microsoft.AspNetCore": "2.2.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.11"
         },
         "compile": {
-          "bin/placeholder/GlobalExceptionHandler.dll": {}
+          "bin/placeholder/CustomMiddlewareCollection.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GlobalExceptionHandler.dll": {}
+          "bin/placeholder/CustomMiddlewareCollection.dll": {}
         }
       }
     }
@@ -5171,16 +5172,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "GlobalExceptionHandler/1.0.0": {
+    "CustomMiddlewareCollection/1.0.0": {
       "type": "project",
-      "path": "../GlobalExceptionHandler/GlobalExceptionHandler.csproj",
-      "msbuildProject": "../GlobalExceptionHandler/GlobalExceptionHandler.csproj"
+      "path": "../GlobalExceptionHandler/CustomMiddlewareCollection.csproj",
+      "msbuildProject": "../GlobalExceptionHandler/CustomMiddlewareCollection.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper >= 12.0.1",
-      "GlobalExceptionHandler >= 1.0.0",
+      "CustomMiddlewareCollection >= 1.0.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.9",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.11",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 7.0.11",
@@ -5221,8 +5222,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj": {
-              "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj"
+            "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj": {
+              "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj"
             }
           }
         }

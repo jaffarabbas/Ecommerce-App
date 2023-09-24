@@ -47,6 +47,9 @@ public partial class User
     [InverseProperty("Users")]
     public virtual AccountType Ac { get; set; } = null!;
 
+    [InverseProperty("Ru")]
+    public virtual ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+
     [InverseProperty("UidNavigation")]
     public virtual ICollection<UserOrder> UserOrders { get; set; } = new List<UserOrder>();
 }

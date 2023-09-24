@@ -25,6 +25,8 @@ public partial class JewelSiteDBContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+
     public virtual DbSet<Setting> Settings { get; set; }
 
     public virtual DbSet<TempUserOrder> TempUserOrders { get; set; }
@@ -74,6 +76,16 @@ public partial class JewelSiteDBContext : DbContext
             entity.HasOne(d => d.CidNavigation).WithMany(p => p.Products)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_PRODUCT_CATEGORIES");
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Rid).HasName("PK__REFRESH___C2B7EDE82F8107AC");
+
+            entity.Property(e => e.Rcreatedat).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.Rstatus).HasDefaultValueSql("((1))");
+
+            entity.HasOne(d => d.Ru).WithMany(p => p.RefreshTokens).HasConstraintName("FK_REFRESH_TOKEN_USER_TO_USER");
         });
 
         modelBuilder.Entity<TempUserOrder>(entity =>

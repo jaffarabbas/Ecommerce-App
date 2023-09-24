@@ -27,17 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GlobalExceptionHandler\GlobalExceptionHandler.csproj" />
+    <ProjectReference Include="..\GlobalExceptionHandler\CustomMiddlewareCollection.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Services\AccountTypeServices\" />
     <Folder Include="Services\AdminServices\" />
-    <Folder Include="Services\CategoriesServices\" />
     <Folder Include="Services\ProductServices\" />
     <Folder Include="Services\TempUserOrderServices\" />
     <Folder Include="Services\UserOrderServices\" />
-    <Folder Include="Services\UsersServices\" />
   </ItemGroup>
 
 </Project>

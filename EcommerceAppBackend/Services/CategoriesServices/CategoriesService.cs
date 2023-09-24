@@ -3,7 +3,7 @@ using EcommerceAppBackend.Dtos;
 using EcommerceAppBackend.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EcommerceAppBackend.Services.ProductServices
+namespace EcommerceAppBackend.Services.CategoriesServices
 {
     public class CategoriesService : ICategroiesService
     {

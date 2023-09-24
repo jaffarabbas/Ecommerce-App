@@ -29,8 +29,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj": {
-                "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj"
+              "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj": {
+                "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj"
               }
             }
           }
@@ -117,12 +117,12 @@
         }
       }
     },
-    "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj": {
+    "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj",
-        "projectName": "GlobalExceptionHandler",
-        "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\GlobalExceptionHandler.csproj",
+        "projectUniqueName": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj",
+        "projectName": "CustomMiddlewareCollection",
+        "projectPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\CustomMiddlewareCollection.csproj",
         "packagesPath": "C:\\Users\\DARKLORD\\.nuget\\packages\\",
         "outputPath": "J:\\GitHub\\Ecommerce-App\\GlobalExceptionHandler\\obj\\",
         "projectStyle": "PackageReference",
@@ -156,6 +156,10 @@
             "Microsoft.AspNetCore": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
             }
           },
           "imports": [

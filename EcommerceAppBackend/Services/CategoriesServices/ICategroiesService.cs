@@ -1,6 +1,6 @@
 using EcommerceAppBackend.Dtos;
 
-namespace EcommerceAppBackend.Services.ProductServices
+namespace EcommerceAppBackend.Services.CategoriesServices
 {
     public interface ICategroiesService
     {

@@ -1,11 +1,10 @@
 ﻿using EcommerceAppBackend.Dtos;
-using EcommerceAppBackend.Services.ProductServices;
-using GlobalErrorHandling.Exceptions;
-using Microsoft.AspNetCore.Http;
+using EcommerceAppBackend.Services.CategoriesServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using BadRequestException = GlobalErrorHandling.Exceptions.BadRequestException;
-using KeyNotFoundException = GlobalErrorHandling.Exceptions.KeyNotFoundException;
+using BadRequestException = CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions.BadRequestException;
+using KeyNotFoundException = CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions.KeyNotFoundException;
 
 namespace EcommerceAppBackend.Controllers
 {
