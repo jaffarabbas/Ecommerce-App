@@ -142,5 +142,78 @@ namespace EcommerceAppBackend.Controllers
 
         #endregion
 
+        #region crud for user
+
+        [HttpGet("GetAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            try
+            {
+                var _users = await this._userServices.GetAllUsers();
+                return Ok(_users);
+            }
+            catch (Exception error)
+            {
+                throw new BadRequestException(error.Message);
+            }
+        }
+
+        [HttpGet("GetUserById")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            try
+            {
+                var _user = await this._userServices.GetUserById(id);
+                return Ok(_user);
+            }
+            catch (Exception error)
+            {
+                throw new BadRequestException(error.Message);
+            }
+        }
+
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register([FromBody] Dtos.User user)
+        {
+            try
+            {
+                var _user = await this._userServices.Register(user);
+                return Ok(_user);
+            }
+            catch (Exception error)
+            {
+                throw new BadRequestException(error.Message);
+            }
+        }
+
+        [HttpPut("UpdateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] Dtos.User user)
+        {
+            try
+            {
+                var _user = await this._userServices.UpdateUser(user);
+                return Ok(_user);
+            }
+            catch (Exception error)
+            {
+                throw new BadRequestException(error.Message);
+            }
+        }
+
+        [HttpDelete("DeleteUser")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                var _user = await this._userServices.DeleteUser(id);
+                return Ok(_user);
+            }
+            catch (Exception error)
+            {
+                throw new BadRequestException(error.Message);
+            }
+        }
+
+        #endregion
     }
 }

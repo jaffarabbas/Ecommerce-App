@@ -4,7 +4,11 @@ using EcommerceAppBackend.Dtos;
 using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Models;
 using EcommerceAppBackend.Repositories;
+using EcommerceAppBackend.Services.AdminServices;
 using EcommerceAppBackend.Services.CategoriesServices;
+using EcommerceAppBackend.Services.ProductServices;
+using EcommerceAppBackend.Services.TempUserOrderServices;
+using EcommerceAppBackend.Services.UserOrderServices;
 using EcommerceAppBackend.Services.UsersServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -41,7 +45,11 @@ builder.Services.AddDbContext<JewelSiteDBContext>(options =>
 builder.Services.AddTransient<ICategroiesService, CategoriesService>();
 builder.Services.AddTransient<IUserServices, UserServices>();
 builder.Services.AddTransient<IRefreshTokenGenerator, RefreshTokenGenerator>();
-
+builder.Services.AddTransient<IAdminServices, AdminServices>();
+builder.Services.AddTransient<IProductServices, ProductServices>();
+builder.Services.AddTransient<ITempUserOrderServices,TempUserOrderServices>();
+builder.Services.AddTransient<IUserOrderServices,UserOrderServices>();
+builder.Services.AddTransient<IAdminServices,AdminServices>();
 #endregion 
 
 #region JWT initialization
