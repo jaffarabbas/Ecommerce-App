@@ -1,5 +1,6 @@
 using AutoMapper;
 using EcommerceAppBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceAppBackend.Services.ProductServices
 {
@@ -14,29 +15,37 @@ namespace EcommerceAppBackend.Services.ProductServices
             _mapper = mapper;
         }
 
-        public Task<Dtos.Product> AddProductAsync(Dtos.Product product)
+        public async Task<Dtos.Product> AddProductAsync(Dtos.Product product)
         {
-            throw new NotImplementedException();
+            var productEntity = _mapper.Map<Models.Product>(product);
+            var result = await _context.Products.AddAsync(productEntity);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<Dtos.Product>(result.Entity);
         }
 
-        public Task<bool> DeleteProductAsync(int id)
+        public async Task<bool> DeleteProductAsync(int id)
         {
-            throw new NotImplementedException();
+            var productEntity = await _context.Products.FirstOrDefaultAsync(x => x.Pid == id);
+            var result = _context.Products.Remove(productEntity!);
+            return result != null ? true : false;
         }
 
-        public Task<Dtos.Product> GetProductAsync(int id)
+        public async Task<Dtos.Product> GetProductAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Products?.Where(x => x.Pid == id)?.Select(x => _mapper.Map<Dtos.Product>(x))?.FirstOrDefaultAsync()!;
         }
 
-        public Task<IEnumerable<Dtos.Product>> GetProductsAsync()
+        public async Task<IEnumerable<Dtos.Product>> GetProductsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Products.Select(x => _mapper.Map<Dtos.Product>(x)).ToListAsync();
         }
 
-        public Task<Dtos.Product> UpdateProductAsync(Dtos.Product product)
+        public async Task<Dtos.Product> UpdateProductAsync(Dtos.Product product)
         {
-            throw new NotImplementedException();
+            var productEntity = _mapper.Map<Models.Product>(product);
+            var result = _context.Products.Update(productEntity);
+            await _context.SaveChangesAsync();
+            return _mapper.Map<Dtos.Product>(result.Entity);
         }
 
     }

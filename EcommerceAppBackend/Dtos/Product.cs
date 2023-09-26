@@ -41,7 +41,7 @@ public partial class Product
 
     [Required]
     [Column("product_status")]
-    public bool? ProductStatus { get; set; }
+    public bool ProductStatus { get; set; }
 
     [ForeignKey("Cid")]
     [InverseProperty("Products")]

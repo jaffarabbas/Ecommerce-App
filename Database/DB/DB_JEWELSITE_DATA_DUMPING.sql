@@ -17,3 +17,5 @@ INSERT INTO CATEGORIES (cname, c_status) VALUES
 INSERT INTO setting (TAX) VALUES
 (50);
 
+
+INSERT INTO USERS (firstname,lastname,email,password,acid) VALUES('t','t','abc@abc.com','12345678',1)
