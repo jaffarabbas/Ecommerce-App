@@ -38,14 +38,14 @@ public partial class User
 
     [Required]
     [Column("u_status")]
-    public bool? UStatus { get; set; }
+    public bool UStatus { get; set; }
 
     [Column("created_at", TypeName = "datetime")]
     public DateTime CreatedAt { get; set; }
 
     [ForeignKey("Acid")]
     [InverseProperty("Users")]
-    public virtual AccountType Ac { get; set; } = null!;
+    public virtual AccountType? Ac { get; set; }
 
     [InverseProperty("Ru")]
     public virtual ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
