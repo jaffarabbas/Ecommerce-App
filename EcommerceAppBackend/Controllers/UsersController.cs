@@ -33,7 +33,7 @@ namespace EcommerceAppBackend.Controllers
         }
         private TokenResponse tokenResponce;
 
-         #region Token Authentication and Generation
+        #region Token Authentication and Generation
 
         [NonAction]
         public TokenResponse Authenticate(int uuid, Claim[] claims)

@@ -17,10 +17,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetAccountTypes")]
-        public IActionResult GetAccountTypes()
+        public async Task<IActionResult> GetAccountTypes()
         {
             try{
-                var accountTypes = _accountTypeServices.GetAccountTypesAsync();
+                var accountTypes = await _accountTypeServices.GetAccountTypesAsync();
                 return Ok(accountTypes);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -28,10 +28,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetAccountType/{id}")]
-        public IActionResult GetAccountType(int id)
+        public async Task<IActionResult> GetAccountType(int id)
         {
             try{
-                var accountType = _accountTypeServices.GetAccountTypeAsync(id);
+                var accountType = await _accountTypeServices.GetAccountTypeAsync(id);
                 return Ok(accountType);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -39,10 +39,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPost("AddAccountType")]
-        public IActionResult AddAccountType(Dtos.AccountType accountType)
+        public async Task<IActionResult> AddAccountType(Dtos.AccountType accountType)
         {
             try{
-                var result = _accountTypeServices.AddAccountTypeAsync(accountType);
+                var result = await _accountTypeServices.AddAccountTypeAsync(accountType);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -61,10 +61,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpDelete("DeleteAccountType/{id}")]
-        public IActionResult DeleteAccountType(int id)
+        public async Task<IActionResult> DeleteAccountType(int id)
         {
             try{
-                var result = _accountTypeServices.DeleteAccountTypeAsync(id);
+                var result = await _accountTypeServices.DeleteAccountTypeAsync(id);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);

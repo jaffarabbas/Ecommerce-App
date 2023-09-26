@@ -17,10 +17,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetUserOrders")]
-        public IActionResult GetUserOrders()
+        public async Task<IActionResult> GetUserOrders()
         {
             try{
-                var userOrders = _userOrderServices.GetAllOrdersAsync();
+                var userOrders = await _userOrderServices.GetAllOrdersAsync();
                 return Ok(userOrders);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -28,10 +28,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetUserOrder/{id}")]
-        public IActionResult GetUserOrder(int id)
+        public async Task<IActionResult> GetUserOrder(int id)
         {
             try{
-                var userOrder = _userOrderServices.GetOrderAsync(id);
+                var userOrder = await _userOrderServices.GetOrderAsync(id);
                 return Ok(userOrder);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -39,10 +39,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPost("AddUserOrder")]
-        public IActionResult AddUserOrder(Dtos.UserOrder userOrder)
+        public async Task<IActionResult> AddUserOrder(Dtos.UserOrder userOrder)
         {
             try{
-                var result = _userOrderServices.AddOrderAsync(userOrder);
+                var result = await _userOrderServices.AddOrderAsync(userOrder);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -50,10 +50,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPut("UpdateUserOrder")]
-        public IActionResult UpdateUserOrder(Dtos.UserOrder userOrder)
+        public async Task<IActionResult> UpdateUserOrder(Dtos.UserOrder userOrder)
         {
             try{
-                var result = _userOrderServices.UpdateOrderAsync(userOrder);
+                var result = await _userOrderServices.UpdateOrderAsync(userOrder);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -61,10 +61,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpDelete("DeleteUserOrder/{id}")]
-        public IActionResult DeleteUserOrder(int id)
+        public async Task<IActionResult> DeleteUserOrder(int id)
         {
             try{
-                var result = _userOrderServices.DeleteOrderAsync(id);
+                var result = await _userOrderServices.DeleteOrderAsync(id);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);

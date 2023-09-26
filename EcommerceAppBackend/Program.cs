@@ -4,6 +4,7 @@ using EcommerceAppBackend.Dtos;
 using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Models;
 using EcommerceAppBackend.Repositories;
+using EcommerceAppBackend.Services.AccountTypeServices;
 using EcommerceAppBackend.Services.AdminServices;
 using EcommerceAppBackend.Services.CategoriesServices;
 using EcommerceAppBackend.Services.ProductServices;
@@ -50,6 +51,7 @@ builder.Services.AddTransient<IProductServices, ProductServices>();
 builder.Services.AddTransient<ITempUserOrderServices,TempUserOrderServices>();
 builder.Services.AddTransient<IUserOrderServices,UserOrderServices>();
 builder.Services.AddTransient<IAdminServices,AdminServices>();
+builder.Services.AddTransient<IAccountTypeServices,AccountTypeServices>();
 #endregion 
 
 #region JWT initialization

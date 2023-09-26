@@ -17,10 +17,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetTempUserOrders")]
-        public IActionResult GetTempUserOrders()
+        public async Task<IActionResult> GetTempUserOrders()
         {
             try{
-                var tempUserOrders = _tempUserOrderServices.GetTempUserOrder();
+                var tempUserOrders = await _tempUserOrderServices.GetTempUserOrder();
                 return Ok(tempUserOrders);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -28,10 +28,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetTempUserOrder/{id}")]
-        public IActionResult GetTempUserOrder(int id)
+        public async Task<IActionResult> GetTempUserOrder(int id)
         {
             try{
-                var tempUserOrder = _tempUserOrderServices.GetTempUserOrderAsync(id);
+                var tempUserOrder = await _tempUserOrderServices.GetTempUserOrderAsync(id);
                 return Ok(tempUserOrder);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -39,10 +39,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPost("AddTempUserOrder")]
-        public IActionResult AddTempUserOrder(Dtos.TempUserOrder tempUserOrder)
+        public async Task<IActionResult> AddTempUserOrder(Dtos.TempUserOrder tempUserOrder)
         {
             try{
-                var result = _tempUserOrderServices.AddTempOrderAsync(tempUserOrder);
+                var result = await _tempUserOrderServices.AddTempOrderAsync(tempUserOrder);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -50,10 +50,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPut("UpdateTempUserOrder")]
-        public IActionResult UpdateTempUserOrder(Dtos.TempUserOrder tempUserOrder)
+        public async Task<IActionResult> UpdateTempUserOrder(Dtos.TempUserOrder tempUserOrder)
         {
             try{
-                var result = _tempUserOrderServices.UpdateTempUserOrderAsync(tempUserOrder);
+                var result = await _tempUserOrderServices.UpdateTempUserOrderAsync(tempUserOrder);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -61,10 +61,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpDelete("DeleteTempUserOrder/{id}")]
-        public IActionResult DeleteTempUserOrder(int id)
+        public async Task<IActionResult> DeleteTempUserOrder(int id)
         {
             try{
-                var result = _tempUserOrderServices.DeleteTempUserOrderAsync(id);
+                var result = await _tempUserOrderServices.DeleteTempUserOrderAsync(id);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);

@@ -17,10 +17,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetProducts")]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
             try{
-                var products = _productServices.GetProductsAsync();
+                var products = await _productServices.GetProductsAsync();
                 return Ok(products);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -28,10 +28,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpGet("GetProduct/{id}")]
-        public IActionResult GetProduct(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
             try{
-                var product = _productServices.GetProductAsync(id);
+                var product = await _productServices.GetProductAsync(id);
                 return Ok(product);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -39,10 +39,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPost("AddProduct")]
-        public IActionResult AddProduct(Dtos.Product product)
+        public async Task<IActionResult> AddProduct(Dtos.Product product)
         {
             try{
-                var result = _productServices.AddProductAsync(product);
+                var result = await _productServices.AddProductAsync(product);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -50,10 +50,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpPut("UpdateProduct")]
-        public IActionResult UpdateProduct(Dtos.Product product)
+        public async Task<IActionResult> UpdateProduct(Dtos.Product product)
         {
             try{
-                var result = _productServices.UpdateProductAsync(product);
+                var result = await _productServices.UpdateProductAsync(product);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
@@ -61,10 +61,10 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [HttpDelete("DeleteProduct/{id}")]
-        public IActionResult DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
             try{
-                var result = _productServices.DeleteProductAsync(id);
+                var result = await _productServices.DeleteProductAsync(id);
                 return Ok(result);
             }catch(Exception ex){
                 throw new BadRequestException(ex.Message);
