@@ -19,7 +19,8 @@
                               [placeholder]="'Password'"
                               [errorMessage]="this.errorMessageService.error('password')!">
             </app-custom-input><br>
-            <input type="submit" class="btnStyle" value="Login">
+            <input type="submit" value="Login" class="btnStyle">
+            <app-custom-spinner [isEnable]="spinner" />
             <br>
             <br>
             <a routerLink="/auth/register">Create new Account</a>&nbsp;&nbsp;&nbsp;<a routerLink="/auth/login">Forget passowrd ?</a>

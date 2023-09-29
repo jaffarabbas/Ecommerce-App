@@ -25,9 +25,14 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a routerLink="/auth/login">
-                        <img src="../../../../assets/images/userlogo.png" alt="" />
+                    <a routerLink="/auth/login" *ngIf="!isLoggedIn; else logOutBlock">
+                        <img src="../../../../assets/images/userlogo.png" alt="user logo" />
                     </a>
+                    <ng-template #logOutBlock>
+                        <button class="logout" name="logout" (click)="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </ng-template>
                 </li>
                 <li>
                     <a routerLink="cart/">

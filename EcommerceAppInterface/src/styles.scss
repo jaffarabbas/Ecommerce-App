@@ -19,25 +19,7 @@
     src: url(assets/fonts/CooperLightBT.ttf);
 }
 
-body{
-    box-sizing: border-box;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-}
 
-a{
-    cursor: pointer;
-}
-
-.error-message{
-    color: red;
-    font-size: 12px;
-    font-family: Poppins-Regular;
-    float: left;
-    padding-top: 3px;
-}
 /* header start*/
 
 
@@ -94,6 +76,17 @@ a{
 
 .navigation ul li:last-child a {
     border-right: none;
+}
+
+.logout {
+    background: none;
+    border: none;
+    margin-top: 13px;
+}
+
+.logout i {
+    color: #b0a171;
+    font-size: 25px;
 }
 
 
@@ -627,7 +620,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     background-size: cover;
 }
 
-.divdrow{
+.divdrow {
     padding: 0;
 }
 
@@ -636,15 +629,15 @@ footer .container .row .col-md-12 ul li a i:hover {
     padding: 0px 5% 20px 5%;
 }
 
-.bottomparagraph{
+.bottomparagraph {
     padding: 0;
 }
 
-.mainDetialImg img{
-    width: 100% !important;
+.mainDetialImg img {
+    width: 80% !important;
 }
 
-.imgDiv{
+.imgDiv {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -701,7 +694,9 @@ footer .container .row .col-md-12 ul li a i:hover {
 
 .incrementer {
     border: 1px solid #333;
-    padding: 10px 30px;
+    padding: 10px 0px 10px 26px !important;
+    width: 60px !important;
+    font-weight: bold;
 }
 
 .rating ul {
@@ -734,7 +729,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     float: left;
 }
 
-.btfcol12{
+.btfcol12 {
     padding: 0;
 }
 
@@ -758,9 +753,10 @@ footer .container .row .col-md-12 ul li a i:hover {
     padding: 0px 20px;
 }
 
-.detialsFooter .row .col-md-12 a{
+.detialsFooter .row .col-md-12 a {
     margin-top: 0;
 }
+
 .productMoreImages {
     position: relative;
     margin: auto;
@@ -793,11 +789,18 @@ footer .container .row .col-md-12 ul li a i:hover {
 }
 
 .tdp i {
-    margin-bottom: 12px;
-    margin-left: 30px;
     font-size: 18px;
     color: rgb(248, 62, 62) !important;
     text-decoration: none !important;
+}
+
+.delbtn {
+    background: transparent;
+    margin-bottom: 12px;
+    margin-left: 30px;
+    margin-top: 7px;
+    padding: 0px;
+    border: none;
 }
 
 .cartPage {
@@ -832,6 +835,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     display: flex;
     width: 400px;
     align-items: center;
+    padding: 10px;
 }
 
 .cartPage .price img {
@@ -847,7 +851,7 @@ footer .container .row .col-md-12 ul li a i:hover {
 
 .cartQuantity {
     display: flex;
-    width: 100px;
+    width: 120px;
     height: 40px;
     background-color: rgba(119, 119, 119, 0.356);
     justify-content: space-evenly;
@@ -857,9 +861,18 @@ footer .container .row .col-md-12 ul li a i:hover {
     margin-right: 40px;
 }
 
-.cartQuantity p {
+.cartQuantity input {
+    background: transparent;
     font-size: 16px;
-    padding-top: 10px;
+    padding: 10px 2px 10px 14px !important;
+    border: none;
+    width: 46px !important;
+}
+
+.grdTotal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cartQuantity a {
@@ -872,7 +885,7 @@ footer .container .row .col-md-12 ul li a i:hover {
 }
 
 .cartfooter {
-    padding: 10px 190px 10px;
+    padding: 10px 230px 10px;
 }
 
 .cartfooter .col-md-12 {
@@ -883,7 +896,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     align-items: center;
 }
 
-.cartfooter a {
+.cartfooter button {
     position: relative;
 }
 
@@ -967,7 +980,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     margin-right: 20px;
 }
 
-.dfco a {
+.dfco button {
     font-size: 18px;
     color: rgb(248, 62, 62) !important;
     text-decoration: none !important;
@@ -1034,13 +1047,13 @@ footer .container .row .col-md-12 ul li a i:hover {
     margin-top: 50px;
 }
 
-.chr a {
+.chr input {
     width: 100%;
     text-align: center;
     padding: 15px 0px;
 }
 
-.chr a:hover {
+.chr input:hover {
     width: 100%;
     text-align: center;
     padding: 15px 0px;
@@ -1137,10 +1150,6 @@ footer .container .row .col-md-12 ul li a i:hover {
     margin-top: 10px;
 }
 
-.cbi.errorCbi{
-  margin-top: 21px;
-}
-
 .cbi input {
     width: 20px !important;
     margin: 0 !important;
@@ -1150,7 +1159,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    //padding: 0px 5px
+    padding: 0px 5px
 }
 
 .act p {
@@ -1174,7 +1183,7 @@ footer .container .row .col-md-12 ul li a i:hover {
 .tmc_banner {
     height: 60vh;
     width: 100%;
-    background-image: url("assets/images/conactbanner3.jpg");
+    background-image: url("assets/images/banner.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1185,6 +1194,41 @@ footer .container .row .col-md-12 ul li a i:hover {
 
 
 /* terms and conditions end*/
+
+
+/* Payment page */
+
+.payment {
+    width: 100%;
+    padding: 60px 0px;
+}
+
+.payment h1 {
+    padding: 10px;
+}
+
+.payment p {
+    padding: 10px;
+}
+
+.payment .row {
+    border: 5px solid #b0a171;
+    padding: 30px 0px;
+}
+
+.paymentForm input {
+    position: relative;
+    width: auto;
+}
+
+
+/* Payment page end */
+
+@media only screen and (min-width: 992px) and (max-width:1200px) {
+    .mainDetialImg img {
+        width: 100% !important;
+    }
+}
 
 @media only screen and (max-width: 992px) {
     .about_side_1 {
@@ -1221,21 +1265,21 @@ footer .container .row .col-md-12 ul li a i:hover {
     .checkOutprice {
         padding: 0px;
     }
-
-    .detialsFooter{
+    .detialsFooter {
         margin-top: 20%;
         padding: 0;
     }
-
-    .detialbtngrp{
+    .detialbtngrp {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-
-    .productDetialsPage .row .col-md-12 a{
+    .productDetialsPage .row .col-md-12 a {
         margin-right: 0;
         margin-top: 10px;
+    }
+    .cartfooter {
+        padding: 10px 60px 10px;
     }
 }
 
@@ -1304,7 +1348,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     .cartfooter p {
         margin-top: 10px;
     }
-    .tdp i{
+    .tdp i {
         margin-left: 0;
     }
 }
@@ -1336,6 +1380,12 @@ footer .container .row .col-md-12 ul li a i:hover {
     }
     .shopmenu a {
         margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 527px) {
+    .mainDetialImg img {
+        width: 100% !important;
     }
 }
 

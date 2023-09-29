@@ -36,7 +36,9 @@ export class ErrorMessageService {
         });
         this.isFormValidate = false;
       }
-      this.validateConfirmPassword(formGroup);
+      if(formGroup.contains("confirmPassword")){
+        this.validateConfirmPassword(formGroup);
+      }
     });
   }
 

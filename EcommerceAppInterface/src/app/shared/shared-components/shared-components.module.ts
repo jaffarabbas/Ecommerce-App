@@ -10,6 +10,7 @@ import { ErrorHandlerComponent } from './error-handler/error-handler.component';
 import { CustomInputComponent } from './custom-input/custom-input.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { CustomDropdownComponent } from './custom-dropdown/custom-dropdown.component';
+import { CustomSpinnerComponent } from './custom-spinner/custom-spinner.component';
 
 
 
@@ -22,7 +23,8 @@ import { CustomDropdownComponent } from './custom-dropdown/custom-dropdown.compo
     CustomSubmitComponent,
     ErrorHandlerComponent,
     CustomInputComponent,
-    CustomDropdownComponent
+    CustomDropdownComponent,
+    CustomSpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { CustomDropdownComponent } from './custom-dropdown/custom-dropdown.compo
         ProductCardComponent,
         ErrorHandlerComponent,
         CustomInputComponent,
-        CustomDropdownComponent
+        CustomDropdownComponent,
+        CustomSpinnerComponent
     ]
 })
 export class SharedComponentsModule { }

@@ -66,6 +66,7 @@ export class ApiService <T> implements OnInit{
   remove(value: T,id:any,endPoint:string): Observable<T> {
     return this.http.put<T>(`${this.apiUrlWithController+endPoint}/${id}`, value);
   }
+  
   delete(id: number,endPoint:string): Observable<any> {
     return this.http.delete(`${this.apiUrlWithController+endPoint}/${id}`).pipe(
       tap(() => {
