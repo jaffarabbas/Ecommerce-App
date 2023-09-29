@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using TRACKIT_BACKEND_API.Dtos;
 
 public class ApiHitResponse : IActionResult
 {
@@ -18,7 +19,7 @@ public class ApiHitResponse : IActionResult
     {
         var response = context.HttpContext.Response;
         response.ContentType = "application/json";
-        var responseData = new TRACKIT_BACKEND_API.Dtos.ApiResponse<Object>
+        var responseData = new ApiResponse<Object>
         {
             Message = this._message,
             StatusCode = _statusCode.ToString(),
