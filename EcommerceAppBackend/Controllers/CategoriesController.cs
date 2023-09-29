@@ -1,4 +1,6 @@
-﻿using EcommerceAppBackend.Dtos;
+﻿using EcommerceAppBackend.Constants;
+using EcommerceAppBackend.Dtos;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Services.CategoriesServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +26,10 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _categroiesService.GetAllCategoriesAsync();
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -36,7 +38,7 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _categroiesService.GetCategoryByIdAsync(categoryId);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch(Exception ex){
                 throw new KeyNotFoundException(ex.Message);
@@ -48,10 +50,10 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _categroiesService.CreateCategoryAsync(category);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
         
@@ -60,10 +62,10 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _categroiesService.UpdateCategoryAsync(category);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -72,10 +74,10 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _categroiesService.DeleteCategoryAsync(categoryId);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
     }

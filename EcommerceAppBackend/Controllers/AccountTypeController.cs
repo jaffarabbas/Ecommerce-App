@@ -1,4 +1,6 @@
 ﻿using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
+using EcommerceAppBackend.Constants;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Services.AccountTypeServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +23,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var accountTypes = await _accountTypeServices.GetAccountTypesAsync();
-                return Ok(accountTypes);
+                return new ApiHitResponse(accountTypes, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -32,9 +34,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var accountType = await _accountTypeServices.GetAccountTypeAsync(id);
-                return Ok(accountType);
+                return new ApiHitResponse(accountType, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -43,9 +45,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _accountTypeServices.AddAccountTypeAsync(accountType);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -54,9 +56,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = _accountTypeServices.UpdateAccountTypeAsync(accountType);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -65,9 +67,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _accountTypeServices.DeleteAccountTypeAsync(id);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
     }

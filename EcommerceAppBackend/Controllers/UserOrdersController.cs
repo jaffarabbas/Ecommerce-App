@@ -1,4 +1,6 @@
 ﻿using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
+using EcommerceAppBackend.Constants;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Services.UserOrderServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +25,7 @@ namespace EcommerceAppBackend.Controllers
                 var userOrders = await _userOrderServices.GetAllOrdersAsync();
                 return Ok(userOrders);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -32,9 +34,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var userOrder = await _userOrderServices.GetOrderAsync(id);
-                return Ok(userOrder);
+                return new ApiHitResponse(userOrder, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -43,9 +45,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _userOrderServices.AddOrderAsync(userOrder);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -54,9 +56,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _userOrderServices.UpdateOrderAsync(userOrder);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -65,9 +67,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _userOrderServices.DeleteOrderAsync(id);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
     }

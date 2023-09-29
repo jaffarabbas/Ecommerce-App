@@ -97,13 +97,11 @@ builder.Services.AddSingleton(mapper);
 #region cors initialization
 
 //cors
-builder.Services.AddCors(options =>
+
+builder.Services.AddCors(p => p.AddDefaultPolicy(build =>
 {
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-    });
-});
+    build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 #endregion
 
@@ -127,6 +125,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 

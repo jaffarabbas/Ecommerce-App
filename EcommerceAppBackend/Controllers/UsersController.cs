@@ -3,7 +3,9 @@ using System.Security.Claims;
 using System.Text;
 using AutoMapper;
 using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
+using EcommerceAppBackend.Constants;
 using EcommerceAppBackend.Dtos;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Models;
 using EcommerceAppBackend.Repositories;
 using EcommerceAppBackend.Services.UsersServices;
@@ -13,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using TRACKIT_BACKEND_API.Dtos;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EcommerceAppBackend.Controllers
 {
@@ -51,7 +54,6 @@ namespace EcommerceAppBackend.Controllers
         }
 
         [NonAction]
-
         private TokenResponse GenerateToken(Models.User pUser)
         {
             tokenResponce = new TokenResponse();
@@ -83,24 +85,20 @@ namespace EcommerceAppBackend.Controllers
         {
             try
             {
-                var _user = await this._context.Users.FirstOrDefaultAsync(data => data.Email == authenticate.Email);
+                var _user = await _context.Users.FirstOrDefaultAsync(data => data.Email == authenticate.Email && data.Password == authenticate.Password);
                 if (_user == null)
                 {
-                    throw new UnAuthorizedAccessException("Invalid Email");
-                }
-                else if(_user != null && _user.Password != authenticate.Password)
-                {
-                    throw new UnAuthorizedAccessException("Invalid Password");
+                    return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(new UnAuthorizedAccessException("Invalid Credentials")), ApiResponseMessages.Error, ApiStatusCodes.Unauthorized);
                 }
                 else
                 {
                     var responce = GenerateToken(_user!);
-                    return Ok(responce);
+                    return new ApiHitResponse(responce, ApiResponseMessages.success, ApiStatusCodes.OK);
                 }
             }
             catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -123,19 +121,19 @@ namespace EcommerceAppBackend.Controllers
 
                 if (_token != null && !_token.Header.Alg.Equals(SecurityAlgorithms.HmacSha256))
                 {
-                    throw new UnAuthorizedAccessException("Invalid Token");
+                    return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(new UnAuthorizedAccessException("Invalid Token")), ApiResponseMessages.Error, ApiStatusCodes.Unauthorized);
                 }
                 var userId = Convert.ToInt32(principle.Identity?.Name);
                 var _reftable = _context.RefreshTokens.FirstOrDefault(data => data.Ruid == userId && data.RefreshToken1 == response.RefreshToken);
                 if (_reftable == null)
                 {
-                    throw new UnAuthorizedAccessException("Invalid Token");
+                     return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(new UnAuthorizedAccessException("Invalid Token")), ApiResponseMessages.Error, ApiStatusCodes.Unauthorized);
                 }
                 TokenResponse _result = Authenticate(userId, principle.Claims.ToArray());
-                return Ok(_result);
+                return new ApiHitResponse(_result, ApiResponseMessages.success, ApiStatusCodes.OK);
             } catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -150,11 +148,11 @@ namespace EcommerceAppBackend.Controllers
             try
             {
                 var _users = await this._userServices.GetAllUsers();
-                return Ok(_users);
+                return new ApiHitResponse(_users, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -164,11 +162,11 @@ namespace EcommerceAppBackend.Controllers
             try
             {
                 var _user = await this._userServices.GetUserById(id);
-                return Ok(_user);
+                return new ApiHitResponse(_user, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -178,11 +176,11 @@ namespace EcommerceAppBackend.Controllers
             try
             {
                 var _user = await this._userServices.Register(user);
-                return Ok(_user);
+                return new ApiHitResponse(_user, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -192,11 +190,11 @@ namespace EcommerceAppBackend.Controllers
             try
             {
                 var _user = await this._userServices.UpdateUser(user);
-                return Ok(_user);
+                return new ApiHitResponse(_user, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -206,11 +204,11 @@ namespace EcommerceAppBackend.Controllers
             try
             {
                 var _user = await this._userServices.DeleteUser(id);
-                return Ok(_user);
+                return new ApiHitResponse(_user, ApiResponseMessages.success, ApiStatusCodes.OK);
             }
             catch (Exception error)
             {
-                throw new BadRequestException(error.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 

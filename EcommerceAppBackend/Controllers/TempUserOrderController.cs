@@ -1,4 +1,6 @@
 ﻿using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
+using EcommerceAppBackend.Constants;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Services.TempUserOrderServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +23,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var tempUserOrders = await _tempUserOrderServices.GetTempUserOrder();
-                return Ok(tempUserOrders);
+                return new ApiHitResponse(tempUserOrders, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -32,9 +34,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var tempUserOrder = await _tempUserOrderServices.GetTempUserOrderAsync(id);
-                return Ok(tempUserOrder);
+                return new ApiHitResponse(tempUserOrder, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -43,9 +45,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _tempUserOrderServices.AddTempOrderAsync(tempUserOrder);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -54,9 +56,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _tempUserOrderServices.UpdateTempUserOrderAsync(tempUserOrder);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -65,9 +67,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _tempUserOrderServices.DeleteTempUserOrderAsync(id);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
     }

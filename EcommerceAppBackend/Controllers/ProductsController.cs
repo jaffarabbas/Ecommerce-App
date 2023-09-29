@@ -1,4 +1,6 @@
 ﻿using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
+using EcommerceAppBackend.Constants;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Services.ProductServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +23,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var products = await _productServices.GetProductsAsync();
-                return Ok(products);
+                return new ApiHitResponse(products, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+               return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -32,9 +34,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var product = await _productServices.GetProductAsync(id);
-                return Ok(product);
+                return new ApiHitResponse(product, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+               return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -43,9 +45,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _productServices.AddProductAsync(product);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+               return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -54,9 +56,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _productServices.UpdateProductAsync(product);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+               return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
 
@@ -65,9 +67,9 @@ namespace EcommerceAppBackend.Controllers
         {
             try{
                 var result = await _productServices.DeleteProductAsync(id);
-                return Ok(result);
+                return new ApiHitResponse(result, ApiResponseMessages.success, ApiStatusCodes.OK);
             }catch(Exception ex){
-                throw new BadRequestException(ex.Message);
+               return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
             }
         }
     }
