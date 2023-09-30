@@ -4,11 +4,17 @@ export class ApiUrls{
   public static API_URL = environment.apiUrl;
   public static API_CONTROLLERS = {
     Users: "Users",
+    AccountTypes: "AccountType",
   };
   public static API_END_POINTS = {
-    Authenticate: "Authenticate",
-    Register: "Register",
-    GetAllUsers: "GetAllUsers",
+    User:{
+        Authenticate: "Authenticate",
+        Register: "Register",
+        GetAllUsers: "GetAllUsers",
+    },
+    AccountType: {
+        GetAccountTypes: "GetAccountTypes",
+    }
   };
 
   public static apiEndPointWithId(endPoint:any,id:any): string {

@@ -21,7 +21,25 @@
 
 
 /* header start*/
+body{
+    box-sizing: border-box;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
 
+a{
+    cursor: pointer;
+}
+
+.error-message{
+    color: red;
+    font-size: 12px;
+    font-family: Poppins-Regular;
+    float: left;
+    padding-top: 3px;
+}
 
 /* header {
   margin: 15px;

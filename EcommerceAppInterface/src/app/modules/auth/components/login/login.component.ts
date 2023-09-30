@@ -33,7 +33,6 @@ export class LoginComponent {
     ]),
     password: new FormControl('',[
       Validators.required,
-      Validators.minLength(8),
     ]),
   });
 
@@ -46,12 +45,13 @@ export class LoginComponent {
       }
       this.spinner = true;
       this.userApiHandlerServices.login(user as User).subscribe((res:any)=>{
-        // this.formGroup.reset();
         this.spinner = false;
         if(res["Message"] == "Success"){
-          console.log(res["Data"]);
-          this.localStorageService.setItem("token",res["Data"]);
+          this.formGroup.reset();
+          this.localStorageService.setItem("user",res["Data"]["User"]);
+          this.localStorageService.setItem("token",res["Data"]["Token"]);
           this.router.navigate(["/"]);
+          this.toastr.success("Welcome "+res["Data"]["User"]["Firstname"]+" "+res["Data"]["User"]["Lastname"]+"!");
           this.toastr.success("Login Successfully");
         }else{
           this.toastr.error(res["Data"]["message"]);

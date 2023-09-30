@@ -11,7 +11,12 @@ import { ApiResponse } from 'src/app/interfaces/response';
 })
 export class UserHandlerService {
   constructor(private userService:UserService) { }
+
   public login(user:User){
-    return this.userService.create(user, ApiUrls.API_END_POINTS.Authenticate);
+    return this.userService.create(user, ApiUrls.API_END_POINTS.User.Authenticate);
+  }
+
+  public register(user:User){
+    return this.userService.create(user, ApiUrls.API_END_POINTS.User.Register);
   }
 }
