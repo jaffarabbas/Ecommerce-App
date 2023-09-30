@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AutoMapper;
 using CustomMiddlewareCollection.GlobalExceptionHandler.Exceptions;
+using CustomMiddlewareCollection.GlobalExceptionHandlerMiddleware.Exceptions;
 using EcommerceAppBackend.Constants;
 using EcommerceAppBackend.Dtos;
 using EcommerceAppBackend.Helper;
@@ -93,7 +94,12 @@ namespace EcommerceAppBackend.Controllers
                 else
                 {
                     var responce = GenerateToken(_user!);
-                    return new ApiHitResponse(responce, ApiResponseMessages.success, ApiStatusCodes.OK);
+                    var userTokenResponse = new UserTokenResponse()
+                    {
+                        User = _user,
+                        Token = responce
+                    };
+                    return new ApiHitResponse(userTokenResponse, ApiResponseMessages.success, ApiStatusCodes.OK);
                 }
             }
             catch (Exception error)
@@ -175,8 +181,16 @@ namespace EcommerceAppBackend.Controllers
         {
             try
             {
-                var _user = await this._userServices.Register(user);
-                return new ApiHitResponse(_user, ApiResponseMessages.success, ApiStatusCodes.OK);
+                var checkUserExist = await _userServices.CheckUserExist(user);
+                if (!checkUserExist)
+                {
+                    var _user = await this._userServices.Register(user);
+                    return new ApiHitResponse(_user, ApiResponseMessages.success, ApiStatusCodes.OK);
+                }
+                else
+                {
+                    return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(new UserAlreadyExistsException("Email Already Exists!")), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
+                }
             }
             catch (Exception error)
             {

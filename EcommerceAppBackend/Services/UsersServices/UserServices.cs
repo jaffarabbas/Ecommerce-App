@@ -39,10 +39,15 @@ namespace EcommerceAppBackend.Services.UsersServices
         }
         public async Task<Dtos.User> UpdateUser(Dtos.User user)
         {
-            var userEntity = _mapper.Map<Models.User>(user);
-            var data = _context.Users.Update(userEntity);
+            var data = _context.Users.Update(_mapper.Map<Models.User>(user));
             await _context.SaveChangesAsync();
             return _mapper.Map<Dtos.User>(data.Entity);
+        }
+
+        public async Task<bool> CheckUserExist(Dtos.User user)
+        {
+            var checkEmailExist = await _context.Users.FirstOrDefaultAsync(x => x.Email == user.Email);
+            return checkEmailExist != null ? true : false;
         }
     }
 }

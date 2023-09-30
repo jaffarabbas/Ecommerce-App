@@ -9,5 +9,6 @@ namespace EcommerceAppBackend.Services.UsersServices
         Task<User> UpdateUser(User user);
         Task<bool> DeleteUser(int id);
         Task<IEnumerable<User>> GetAllUsers();
+        public Task<bool> CheckUserExist(Dtos.User user);
     }
 }
