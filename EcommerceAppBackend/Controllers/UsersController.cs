@@ -68,7 +68,7 @@ namespace EcommerceAppBackend.Controllers
                         new Claim(ClaimTypes.Name,pUser.Uid.ToString()),
                     }
                 ),
-                Expires = DateTime.Now.AddMinutes(2),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenkey
                 ), SecurityAlgorithms.HmacSha256)
             };

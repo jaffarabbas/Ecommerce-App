@@ -35,6 +35,11 @@ namespace EcommerceAppBackend.Services.ProductServices
             return await _context.Products?.Where(x => x.Pid == id)?.Select(x => _mapper.Map<Dtos.Product>(x))?.FirstOrDefaultAsync()!;
         }
 
+        public async Task<IEnumerable<Dtos.Product>> GetProductByCIDAsync(int id)
+        {
+            return await _context.Products.Where(c => c.Cid == id).Select(x => _mapper.Map<Dtos.Product>(x)).ToListAsync();
+        }
+
         public async Task<IEnumerable<Dtos.Product>> GetProductsAsync()
         {
             return await _context.Products.Select(x => _mapper.Map<Dtos.Product>(x)).ToListAsync();

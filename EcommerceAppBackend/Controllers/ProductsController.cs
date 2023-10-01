@@ -40,6 +40,20 @@ namespace EcommerceAppBackend.Controllers
             }
         }
 
+        [HttpGet("GetProductByCid/{id}")]
+        public async Task<IActionResult> GetProductByCID(int id)
+        {
+            try
+            {
+                var product = await _productServices.GetProductByCIDAsync(id);
+                return new ApiHitResponse(product, ApiResponseMessages.success, ApiStatusCodes.OK);
+            }
+            catch (Exception ex)
+            {
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(ex), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
+            }
+        }
+
         [HttpPost("AddProduct")]
         public async Task<IActionResult> AddProduct(Dtos.Product product)
         {
