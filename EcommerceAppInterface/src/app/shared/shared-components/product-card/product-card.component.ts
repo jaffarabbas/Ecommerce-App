@@ -8,4 +8,7 @@ import {ProductCard} from "../../../interfaces/ProductCard";
 })
 export class ProductCardComponent {
   @Input() product!:ProductCard;
+  constructor() {
+    
+  }
 }

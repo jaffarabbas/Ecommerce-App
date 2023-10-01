@@ -1,1 +1,12 @@
-<p>shop works!</p>
+<app-header></app-header>   
+<app-custom-banner *ngIf="isShowBanner" [class]="'shop_banner'" [bannerTitle]="'Products'"></app-custom-banner>
+<!-- product start -->
+<section class="productPage">
+  <div class="container">
+    <app-product-header></app-product-header>
+    <app-product-categories-bar></app-product-categories-bar>
+    <app-products-list></app-products-list>
+  </div>
+</section>
+<!-- product end -->
+<app-footer></app-footer>

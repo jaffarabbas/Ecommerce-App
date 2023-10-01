@@ -5,6 +5,8 @@ export class ApiUrls{
   public static API_CONTROLLERS = {
     Users: "Users",
     AccountTypes: "AccountType",
+    Products:"Products",
+    Categories:"Categories",
   };
   public static API_END_POINTS = {
     User:{
@@ -14,7 +16,14 @@ export class ApiUrls{
     },
     AccountType: {
         GetAccountTypes: "GetAccountTypes",
-    }
+    },
+    Products:{
+      GetProductByCid:"GetProductByCid",
+      GetProduct:"GetProduct",
+    },
+    Categories :{
+      GetAllCategories:"GetAllCategories"
+    }        
   };
 
   public static apiEndPointWithId(endPoint:any,id:any): string {
