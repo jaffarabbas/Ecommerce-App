@@ -1,0 +1,7 @@
+.submenu {
+  overflow-y: hidden !important;
+  transition: transform 300ms ease !important;
+  transform: scaleY(0) !important;
+  transform-origin: top !important;
+  padding-left: 30px !important;
+}

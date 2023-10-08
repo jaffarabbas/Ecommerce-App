@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {MatSidenav} from "@angular/material/sidenav";
 import {SideMenuService} from "../../services/core/side-menu.service";
 
 @Component({
@@ -7,6 +8,8 @@ import {SideMenuService} from "../../services/core/side-menu.service";
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  constructor() {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  constructor(public sideMenuService:SideMenuService) {
   }
 }

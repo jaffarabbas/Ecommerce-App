@@ -45,4 +45,14 @@ export class SideMenuService {
       this.isShowing = false;
     }
   }
+
+  changeActive(id:number) {
+    this.sideList.forEach((item) => {
+      if(item.id === id) {
+        item.isActive = true;
+      } else {
+        item.isActive = false;
+      }
+    });
+  }
 }

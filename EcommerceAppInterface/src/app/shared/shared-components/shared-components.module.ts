@@ -55,6 +55,8 @@ import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-
     AdminHeaderDropdownComponent,
     AdminHeaderComponent,
     AdminSidenavComponent,
+    AdminSidenavListComponent,
+    AdminSidenavItemsComponent,
   ]
 })
 export class SharedComponentsModule { }

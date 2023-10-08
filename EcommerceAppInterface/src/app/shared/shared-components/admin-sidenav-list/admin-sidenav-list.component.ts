@@ -9,14 +9,4 @@ import {SideMenuService} from "../../../services/core/side-menu.service";
 export class AdminSidenavListComponent {
   constructor(public sideMenuService:SideMenuService) {
   }
-
-  changeActive(id:number) {
-    this.sideMenuService.sideList.forEach((item) => {
-      if(item.id === id) {
-        item.isActive = true;
-      } else {
-        item.isActive = false;
-      }
-    });
-  }
 }
