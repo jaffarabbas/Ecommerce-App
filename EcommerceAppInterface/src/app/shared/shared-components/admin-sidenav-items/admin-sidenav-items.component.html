@@ -1,0 +1,17 @@
+<mat-list-item class="parent">
+  <mat-icon>{{icon}}</mat-icon>
+  <span class="full-width" *ngIf="sideMenuService.isExpanded || sideMenuService.isShowing">{{label}}</span>
+  <mat-icon class="menu-button" [ngClass]="{'rotated' : isActive}" *ngIf="sideMenuService.isExpanded || sideMenuService.isShowing">chevron_right</mat-icon>
+</mat-list-item>
+<!--<div class="submenu" [ngClass]="{'expanded' : sideMenuService.showSubmenu}" *ngIf="sideMenuService.isShowing || sideMenuService.isExpanded">-->
+<!--  <a mat-list-item href="...">Submenu Item 1</a>-->
+<!--  <a mat-list-item href="...">Submenu Item 2</a>-->
+<!--  <mat-list-item (click)="sideMenuService.showSubSubMenu = !sideMenuService.showSubSubMenu" class="parent">-->
+<!--    <span class="full-width" *ngIf="sideMenuService.isExpanded || sideMenuService.isShowing">Nested Menu</span>-->
+<!--    <mat-icon class="menu-button" [ngClass]="{'rotated' : sideMenuService.showSubSubMenu}" *ngIf="sideMenuService.isExpanded || sideMenuService.isShowing">expand_more</mat-icon>-->
+<!--  </mat-list-item>-->
+<!--  <div class="submenu" [ngClass]="{'expanded' : sideMenuService.showSubSubMenu}" *ngIf="sideMenuService.isShowing || sideMenuService.isExpanded">-->
+<!--    <mat-list-item>SubSubmenu Item 1</mat-list-item>-->
+<!--    <mat-list-item>SubSubmenu Item 2</mat-list-item>-->
+<!--  </div>-->
+<!--</div>-->

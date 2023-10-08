@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EcommerceAppBackend.Helper;
 using EcommerceAppBackend.Models;
 using Microsoft.EntityFrameworkCore;
 

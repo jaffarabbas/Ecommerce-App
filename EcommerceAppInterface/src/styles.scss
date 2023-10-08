@@ -1435,3 +1435,60 @@ footer .container .row .col-md-12 ul li a i:hover {
         padding-right: 10px;
     }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.admin-section{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  height: 100% !important;
+}
+.example-sidenav-content {
+  display: flex !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #fff !important;
+  color: #333 !important;
+}
+.example-sidenav {
+  user-select: none !important;
+}
+.full-width {
+  width: 100% !important;
+  text-align: start;
+  margin-inline: 25px;
+  margin-top: auto;
+  height: 100%;
+  padding: 0px;
+  line-height: initial;
+}
+.menu-button {
+  transition: 300ms ease-in-out !important;
+  transform: rotate(0deg) !important;
+}
+.menu-button.rotated {
+  transform: rotate(180deg) !important;
+}
+.submenu {
+  overflow-y: hidden !important;
+  transition: transform 300ms ease !important;
+  transform: scaleY(0) !important;
+  transform-origin: top !important;
+  padding-left: 30px !important;
+}
+.submenu.expanded {
+  transform: scaleY(1) !important;
+}
+
+

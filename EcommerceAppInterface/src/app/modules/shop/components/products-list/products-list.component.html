@@ -1,7 +1,7 @@
 <div class="tab-content">
     <div id="shpprcr1" class="tab-pane fade in active">
         <div class="row prrow">
-            <app-product-card *ngFor="let product of this.productHadnlerService.productList" [product]="product"/>
+            <app-product-card [routerLink]="'/shop/product-detail/'" *ngFor="let product of this.productHadnlerService.productList" [product]="product"/>
         </div>
         <app-product-pagination-bar></app-product-pagination-bar>
     </div>

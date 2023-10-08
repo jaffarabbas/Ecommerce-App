@@ -1,0 +1,3 @@
+<mat-nav-list>
+  <app-admin-sidenav-items (click)="changeActive(item.id)" *ngFor="let item of sideMenuService.sideList" [routerLink]="[item.link]" [icon]="item.icon" [label]="item.label" [isActive]="item.isActive"/>
+</mat-nav-list>

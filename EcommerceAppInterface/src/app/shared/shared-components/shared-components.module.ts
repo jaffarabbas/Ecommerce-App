@@ -11,6 +11,12 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { CustomDropdownComponent } from './custom-dropdown/custom-dropdown.component';
 import { CustomSpinnerComponent } from './custom-spinner/custom-spinner.component';
+import { MaterialModule } from '../material/material/material.module';
+import { AdminHeaderDropdownComponent } from './admin-header-dropdown/admin-header-dropdown.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
+import { AdminSidenavListComponent } from './admin-sidenav-list/admin-sidenav-list.component';
+import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-items.component';
 
 
 
@@ -24,22 +30,31 @@ import { CustomSpinnerComponent } from './custom-spinner/custom-spinner.componen
     ErrorHandlerComponent,
     CustomInputComponent,
     CustomDropdownComponent,
-    CustomSpinnerComponent
+    CustomSpinnerComponent,
+    AdminHeaderDropdownComponent,
+    AdminHeaderComponent,
+    AdminSidenavComponent,
+    AdminSidenavListComponent,
+    AdminSidenavItemsComponent,
   ],
   imports: [
     CommonModule,
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
-    exports: [
-        HeaderComponent,
-        FooterComponent,
-        CustomBannerComponent,
-        ProductCardComponent,
-        ErrorHandlerComponent,
-        CustomInputComponent,
-        CustomDropdownComponent,
-        CustomSpinnerComponent
-    ]
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    CustomBannerComponent,
+    ProductCardComponent,
+    ErrorHandlerComponent,
+    CustomInputComponent,
+    CustomDropdownComponent,
+    CustomSpinnerComponent,
+    AdminHeaderDropdownComponent,
+    AdminHeaderComponent,
+    AdminSidenavComponent,
+  ]
 })
 export class SharedComponentsModule { }

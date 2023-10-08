@@ -8,6 +8,7 @@ import { ProductCategoriesBarComponent } from './components/product-categories-b
 import { ProductHeaderComponent } from './components/product-header/product-header.component';
 import { ProductPaginationBarComponent } from './components/product-pagination-bar/product-pagination-bar.component';
 import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-
     ProductsListComponent,
     ProductCategoriesBarComponent,
     ProductHeaderComponent,
-    ProductPaginationBarComponent
+    ProductPaginationBarComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

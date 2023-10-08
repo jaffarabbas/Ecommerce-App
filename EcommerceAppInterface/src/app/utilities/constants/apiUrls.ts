@@ -20,6 +20,9 @@ export class ApiUrls{
     Products:{
       GetProductByCid:"GetProductByCid",
       GetProduct:"GetProduct",
+      AddProduct:"AddProduct",
+      UpdateProduct:"UpdateProduct",
+      DeleteProduct:"DeleteProduct"
     },
     Categories :{
       GetAllCategories:"GetAllCategories"

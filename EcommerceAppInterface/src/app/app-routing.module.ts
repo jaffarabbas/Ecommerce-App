@@ -8,10 +8,12 @@ import { CheckoutComponent } from './modules/checkout/checkout.component';
 import { PaymentComponent } from './modules/payment/payment.component';
 import { isUserloggedInGuard } from './guards/is-userlogged-in.guard';
 import { navigateToHomeGuard } from './guards/navigate-to-home.guard';
+import { AdminComponent } from './modules/admin/admin.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch: 'full'},
+  {path:'',redirectTo:'admin',pathMatch: 'full'},
   {path:'home', component:HomeComponent,loadChildren:()=>import('./modules/home/home.module').then(m=>m.HomeModule)},
+  {path:'admin', component:AdminComponent,loadChildren:()=>import('./modules/admin/admin.module').then(m=>m.AdminModule)},
   {path:'auth', canActivate:[navigateToHomeGuard],component:AuthComponent,loadChildren:()=>import('./modules/auth/auth.module').then(m=>m.AuthModule)},
   {path:'cart', canActivate:[isUserloggedInGuard],component:CartComponent, loadChildren:()=>import('./modules/cart/cart.module').then(m=>m.CartModule)},
   {path:'shop', canActivate:[isUserloggedInGuard],component:ShopComponent, loadChildren:()=>import('./modules/shop/shop.module').then(m=>m.ShopModule)},
