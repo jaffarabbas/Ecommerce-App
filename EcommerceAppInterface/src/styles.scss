@@ -1454,12 +1454,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 100% !important;
 }
 .example-sidenav-content {
-  display: flex !important;
+  //display: flex !important;
   height: 100% !important;
-  align-items: center !important;
-  justify-content: center !important;
+  //align-items: center !important;
+  //justify-content: center !important;
   background-color: #fff !important;
   color: #333 !important;
+  padding: 20px;
+  overflow: hidden;
 }
 .example-sidenav {
   user-select: none !important;
@@ -1491,4 +1493,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: scaleY(1) !important;
 }
 
-
+.admin_crud_table_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

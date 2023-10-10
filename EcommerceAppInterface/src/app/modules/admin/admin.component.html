@@ -13,9 +13,7 @@
           <mat-icon class="menu-button" [ngClass]="{'rotated' : item.isActive}" *ngIf="sideMenuService.isExpanded || sideMenuService.isShowing">chevron_right</mat-icon>
         </mat-list-item>
       </mat-nav-list>
-
     </mat-sidenav>
-
     <div class="example-sidenav-content">
       <router-outlet></router-outlet>
     </div>
