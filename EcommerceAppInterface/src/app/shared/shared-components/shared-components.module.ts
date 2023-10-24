@@ -17,6 +17,7 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { AdminSidenavListComponent } from './admin-sidenav-list/admin-sidenav-list.component';
 import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-items.component';
+import { CustomTableComponent } from './custom-table/custom-table.component';
 
 
 
@@ -36,6 +37,7 @@ import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-
     AdminSidenavComponent,
     AdminSidenavListComponent,
     AdminSidenavItemsComponent,
+    CustomTableComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +59,7 @@ import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-
     AdminSidenavComponent,
     AdminSidenavListComponent,
     AdminSidenavItemsComponent,
+    CustomTableComponent
   ]
 })
 export class SharedComponentsModule { }

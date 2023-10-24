@@ -16,7 +16,7 @@ export class AdminProductHandlerService {
     return this.productServices.create(product,ApiUrls.API_END_POINTS.Products.AddProduct,token);
   }
 
-  public getAllProducts(id:any){
+  public getAllProducts(){
     let token = this.localStorageService.getItem("token")["JWTToken"];
     return this.productServices.getAll(ApiUrls.API_END_POINTS.Products.GetProduct,token);
   }
