@@ -13,6 +13,7 @@ import { FirebaseModule } from './shared/firebase/firebase.module';
 import {MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/material/autocomplete";
 import {MAT_SELECT_SCROLL_STRATEGY_PROVIDER} from "@angular/material/select";
 import {MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/material/menu";
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/material/menu"
     MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER,
     MAT_SELECT_SCROLL_STRATEGY_PROVIDER,
     MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER,
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   bootstrap: [AppComponent]
 })

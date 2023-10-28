@@ -7,7 +7,7 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./custom-input.component.scss']
 })
 export class CustomInputComponent {
-  @Input() class!: string;
+  @Input() className!: string;
   @Input() formGroup!: FormGroup;
   @Input() controlName!: string;
   @Input() type: string = "text";

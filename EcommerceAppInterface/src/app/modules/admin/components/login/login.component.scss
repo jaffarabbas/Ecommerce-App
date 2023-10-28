@@ -1,0 +1,47 @@
+.login{
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 8px -2px #707070;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto auto;
+    position: relative;
+    top: 20%;
+    h1{
+        font-size: 3rem;
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        .sub{
+            color: #ff5a5a;
+        }
+    }
+}
+
+.height{
+    margin-top: 20px;
+}
+
+.adminLoginbtn{
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 8px -2px #646464;
+    border: none;
+    background: #ff5a5a;
+    color: #fff;
+    font-weight: bold;
+}
+
+.adminLoginbtn:active{
+    background: #ab3c3c;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}

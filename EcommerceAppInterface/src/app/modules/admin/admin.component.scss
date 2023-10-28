@@ -1,3 +1,13 @@
+.example-sidenav-content{
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.isAdmin{
+  background-color: #ff5a5a !important;
+}
+
 ::ng-deep .mat-mdc-list-item-unscoped-content {
   display: flex !important;
 }

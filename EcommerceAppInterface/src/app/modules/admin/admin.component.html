@@ -1,9 +1,9 @@
 <div class="admin-section">
-  <app-admin-header/>
+  <app-admin-header *ngIf="isAdminLoggedIn"/>
 
   <mat-sidenav-container class="example-container" autosize>
 <!--    <app-admin-sidenav/>-->
-    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="sideMenuService.mouseenter()" (mouseleave)="sideMenuService.mouseleave()">
+    <mat-sidenav *ngIf="isAdminLoggedIn" #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="sideMenuService.mouseenter()" (mouseleave)="sideMenuService.mouseleave()">
 <!--      <app-admin-sidenav-list />-->
       <mat-nav-list>
 <!--        <app-admin-sidenav-items (click)="sideMenuService.changeActive(item.id)" *ngFor="let item of sideMenuService.sideList" [routerLink]="[item.link]" [icon]="item.icon" [label]="item.label" [isActive]="item.isActive"/>-->
@@ -14,7 +14,7 @@
         </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
-    <div class="example-sidenav-content">
+    <div class="example-sidenav-content" [ngClass]="{isAdmin:!isAdminLoggedIn}">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-container>

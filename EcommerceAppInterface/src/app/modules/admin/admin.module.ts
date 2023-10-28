@@ -13,12 +13,17 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
 import {MaterialModule} from "../../shared/material/material/material.module";
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import {LoginComponent} from "./components/login/login.component";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AdminComponent,
+    LoginComponent,
     ProductComponent
   ],
   imports: [
@@ -26,6 +31,9 @@ import {MaterialModule} from "../../shared/material/material/material.module";
     AdminRoutingModule,
     SharedComponentsModule,
     MaterialModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

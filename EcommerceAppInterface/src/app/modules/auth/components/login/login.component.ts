@@ -43,6 +43,7 @@ export class LoginComponent {
     );
     this.toastr.success('Login Successfully');
   }
+  
   submit() {
     this.errorMessageService.checkFormValidation(this.formGroup);
     if (this.errorMessageService.isFormValidate) {

@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="login">
+  <h1 class="text-center">ADMIN <span class="sub">LOGIN</span></h1>
+  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+    <app-custom-input [formGroup]="formGroup"
+      [className]="'feild'"
+      [controlName]="'email'"
+      [type]="'email'"
+      [placeholder]="'Email Address'"
+      [errorMessage]="this.errorMessageService.error('email')!">
+    </app-custom-input>
+    <br>
+    <app-custom-input [formGroup]="formGroup"
+      [className]="'feild'"
+      [controlName]="'password'"
+      [type]="'password'"
+      [placeholder]="'Password'"
+      [errorMessage]="this.errorMessageService.error('password')!">
+    </app-custom-input>
+    <app-custom-spinner [isEnable]="spinner" [className]="'admin'"/>
+    <input class="adminLoginbtn" type="submit" value="Login">
+  </form>
+</div>
+

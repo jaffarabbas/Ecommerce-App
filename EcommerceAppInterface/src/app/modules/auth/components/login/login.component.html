@@ -8,12 +8,14 @@
           <form [formGroup]="formGroup" (ngSubmit)="submit()">
             <h1>Login</h1>
             <app-custom-input [formGroup]="formGroup"
+                              [className]="'contactInput'"
                               [controlName]="'email'"
                               [type]="'email'"
                               [placeholder]="'Email Address'"
                               [errorMessage]="this.errorMessageService.error('email')!">
             </app-custom-input>
             <app-custom-input [formGroup]="formGroup"
+                              [className]="'contactInput'"
                               [controlName]="'password'"
                               [type]="'password'"
                               [placeholder]="'Password'"
