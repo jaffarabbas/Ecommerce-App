@@ -13,24 +13,26 @@ import { tableColumnData } from 'src/app/interfaces/tableColumn';
 })
 export class ProductComponent implements OnInit{
   dataSource!: MatTableDataSource<Product>;
-  tableColumnData:tableColumnData[] = [];
-  constructor(public adminProductHandlerService:AdminProductHandlerService) {}
+  tableColumnData!:tableColumnData[];
+  constructor(public adminProductHandlerService:AdminProductHandlerService) {
+    this.dataSource = new MatTableDataSource<Product>();
+  }
+
   ngOnInit(): void {
-    this.getProducts();
     this.tableColumnData = [
-      {id:"1",label:"ID",property:"id"},
-      {id:"2",label:"Name",property:"name"},
-      {id:"3",label:"Description",property:"description"},
-      {id:"4",label:"Price",property:"price"},
-      {id:"5",label:"Category",property:"category"},
-      {id:"6",label:"Image",property:"image"},
+      {id:"1",label:"ID",property:"Pid"},
+      {id:"2",label:"Name",property:"Name"},
+      {id:"3",label:"Description",property:"Description"},
+      {id:"4",label:"Price",property:"Price"},
+      {id:"5",label:"Category",property:"Cid"},
+      {id:"6",label:"Image",property:"Image"},
       {id:"7",label:"Action",property:"action"}
     ];
+    this.getProducts();
   }
   getProducts(){
     this.adminProductHandlerService.getAllProducts().subscribe((data:any)=>{
-      console.log(data);
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.data = data["Data"];
     });
   }
 
