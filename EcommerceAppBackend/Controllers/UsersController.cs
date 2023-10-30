@@ -69,8 +69,7 @@ namespace EcommerceAppBackend.Controllers
                     }
                 ),
                 Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenkey
-                ), SecurityAlgorithms.HmacSha256)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenkey), SecurityAlgorithms.HmacSha256)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

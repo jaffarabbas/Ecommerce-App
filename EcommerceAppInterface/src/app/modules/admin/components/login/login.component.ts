@@ -28,8 +28,8 @@ export class LoginComponent {
 
   init(res: any) {
     this.formGroup.reset();
-    this.localStorageService.setItem('user', res['Data']['User']);
-    this.localStorageService.setItem('token', res['Data']['Token']);
+    this.localStorageService.setItem('adminUser', res['Data']['User']);
+    this.localStorageService.setItem('adminToken', res['Data']['Token']);
     this.router.navigate(['/']);
     this.toastr.success(
       'Welcome ' +

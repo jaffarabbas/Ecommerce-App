@@ -19,7 +19,7 @@ export class ApiUrls{
     },
     Products:{
       GetProductByCid:"GetProductByCid",
-      GetProduct:"GetProduct",
+      GetProducts:"GetProducts",
       AddProduct:"AddProduct",
       UpdateProduct:"UpdateProduct",
       DeleteProduct:"DeleteProduct"
