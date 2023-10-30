@@ -5,6 +5,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import { Product } from 'src/app/models/products';
 import { tableColumnData } from 'src/app/interfaces/tableColumn';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -14,7 +15,7 @@ import { tableColumnData } from 'src/app/interfaces/tableColumn';
 export class ProductComponent implements OnInit{
   dataSource!: MatTableDataSource<Product>;
   tableColumnData!:tableColumnData[];
-  constructor(public adminProductHandlerService:AdminProductHandlerService) {
+  constructor(public adminProductHandlerService:AdminProductHandlerService,private toastr: ToastrService) {
     this.dataSource = new MatTableDataSource<Product>();
   }
 
@@ -30,9 +31,15 @@ export class ProductComponent implements OnInit{
     ];
     this.getProducts();
   }
+
   getProducts(){
     this.adminProductHandlerService.getAllProducts().subscribe((data:any)=>{
-      this.dataSource.data = data["Data"];
+      if(data["Message"] == "Success"){
+        this.dataSource.data = data["Data"];
+      }else{
+        this.dataSource.data = [];
+        this.toastr.error(data["Data"]["message"]);
+      }
     });
   }
 
