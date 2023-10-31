@@ -1,0 +1,6 @@
+<div>
+    <button mat-raised-button *ngFor="let button of buttons" [color]="button.color" (click)="button.action()">
+      <mat-icon>{{ button.icon }}</mat-icon>
+      {{ button.label }}
+    </button>
+</div>

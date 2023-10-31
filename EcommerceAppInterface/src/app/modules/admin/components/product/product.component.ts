@@ -21,13 +21,13 @@ export class ProductComponent implements OnInit{
 
   ngOnInit(): void {
     this.tableColumnData = [
-      {id:"1",label:"ID",property:"Pid"},
-      {id:"2",label:"Name",property:"Name"},
-      {id:"3",label:"Description",property:"Description"},
-      {id:"4",label:"Price",property:"Price"},
-      {id:"5",label:"Category",property:"Cid"},
-      {id:"6",label:"Image",property:"Image"},
-      {id:"7",label:"Action",property:"action"}
+      {id:"1",label:"ID",type:"int",property:"Pid"},
+      {id:"2",label:"Name",type:"string",property:"Name"},
+      {id:"3",label:"Description",type:"string",property:"Description"},
+      {id:"4",label:"Price",type:"double",property:"Price"},
+      {id:"5",label:"Category",type:"int",property:"Cid"},
+      {id:"6",label:"Image",type:"image",property:"Image"},
+      {id:"7",label:"Action",type:"btngroup",property:"action"}
     ];
     this.getProducts();
   }
@@ -42,5 +42,4 @@ export class ProductComponent implements OnInit{
       }
     });
   }
-
 }

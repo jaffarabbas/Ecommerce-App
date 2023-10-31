@@ -18,6 +18,7 @@ import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { AdminSidenavListComponent } from './admin-sidenav-list/admin-sidenav-list.component';
 import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-items.component';
 import { CustomTableComponent } from './custom-table/custom-table.component';
+import { CustomTableBtnGroupComponent } from './custom-table-btn-group/custom-table-btn-group.component';
 
 
 
@@ -38,6 +39,7 @@ import { CustomTableComponent } from './custom-table/custom-table.component';
     AdminSidenavListComponent,
     AdminSidenavItemsComponent,
     CustomTableComponent,
+    CustomTableBtnGroupComponent,
   ],
   imports: [
     CommonModule,
