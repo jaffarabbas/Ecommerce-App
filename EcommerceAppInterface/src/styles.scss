@@ -1498,3 +1498,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: space-between;
   align-items: center;
 }
+
+
+.adminBtnGroup{
+    width: 100px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button{
+        cursor: pointer;
+    }
+  }

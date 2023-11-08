@@ -9,14 +9,34 @@
         </mat-form-field>
       </div>
     </div>
+
     <div class="example-table-container" >
       <table mat-table [dataSource]="dataSource" matSort class="example-table">
-
+        
         <ng-container *ngFor="let column of tableColumnData" [matColumnDef]="column.property">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.label }} </th>
-          <td mat-cell *matCellDef="let row" [innerHTML]="getCellContent(column, row)"> </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.label }}</th>
+          <td mat-cell *matCellDef="let row">
+            <ng-container [ngTemplateOutlet]="column.type === 'image' ? imageCell : (column.type === 'btngroup' ? btnGroupCell : defaultCell)"
+                          [ngTemplateOutletContext]="{ row: row, column: column }"></ng-container>
+          </td>
         </ng-container>
-  
+
+        <ng-template #defaultCell let-row="row" let-column="column">
+          {{ row[column.property] }}
+        </ng-template>
+        
+        <ng-template #imageCell let-row="row" let-column="column">
+          <img [src]="row[column.property]" alt="Image" width="50" />
+        </ng-template>
+        
+        <ng-template #btnGroupCell let-row="row" let-column="column">
+          <div class="adminBtnGroup">
+            <button><img src="../../../../assets/icons/detail.svg" height="20px"/></button>
+            <button (click)="edit()"><img src="../../../../assets/icons/edit.svg" height="20px"/></button>
+            <button><img src="../../../../assets/icons/delete.svg" height="20px"/></button>
+          </div>
+        </ng-template>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   
@@ -30,4 +50,3 @@
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
-  
