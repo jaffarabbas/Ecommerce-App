@@ -1,7 +1,7 @@
 <div class="table_section example-container">
     <h2>{{tableName}}</h2>
     <div class="admin_crud_table_header">
-      <button mat-raised-button color="primary">Primary</button>
+      <button (click)="addData.emit()" mat-raised-button color="primary">Add Prodcuts</button>
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Search</mat-label>

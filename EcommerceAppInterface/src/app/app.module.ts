@@ -14,6 +14,7 @@ import {MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/materi
 import {MAT_SELECT_SCROLL_STRATEGY_PROVIDER} from "@angular/material/select";
 import {MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/material/menu";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
     MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER,
     MAT_SELECT_SCROLL_STRATEGY_PROVIDER,
     MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER,
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]
 })

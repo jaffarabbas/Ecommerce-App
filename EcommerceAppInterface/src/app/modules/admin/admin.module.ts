@@ -17,6 +17,10 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {LoginComponent} from "./components/login/login.component";
 import {MatInputModule} from "@angular/material/input";
+import { CategoriesComponent } from './components/categories/categories.component';
+import { AccountTypeComponent } from './components/account-type/account-type.component';
+import { AddProductsComponent } from './components/product/components/add-products/add-products.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -24,7 +28,10 @@ import {MatInputModule} from "@angular/material/input";
     DashboardComponent,
     AdminComponent,
     LoginComponent,
-    ProductComponent
+    ProductComponent,
+    CategoriesComponent,
+    AccountTypeComponent,
+    AddProductsComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +40,8 @@ import {MatInputModule} from "@angular/material/input";
     MaterialModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class AdminModule { }

@@ -6,6 +6,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import { Product } from 'src/app/models/products';
 import { tableColumnData } from 'src/app/interfaces/tableColumn';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductsComponent } from './components/add-products/add-products.component';
 
 @Component({
   selector: 'app-product',
@@ -15,11 +17,14 @@ import { Toast, ToastrService } from 'ngx-toastr';
 export class ProductComponent implements OnInit{
   dataSource!: MatTableDataSource<Product>;
   tableColumnData!:tableColumnData[];
-  constructor(public adminProductHandlerService:AdminProductHandlerService,private toastr: ToastrService) {
-    this.dataSource = new MatTableDataSource<Product>();
+  constructor(
+    public adminProductHandlerService:AdminProductHandlerService,
+    private matDalog:MatDialog,
+    private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<Product>();
     this.tableColumnData = [
       {id:"1",label:"ID",type:"int",property:"Pid"},
       {id:"2",label:"Name",type:"string",property:"Name"},
@@ -41,5 +46,14 @@ export class ProductComponent implements OnInit{
         this.toastr.error(data["Data"]["message"]);
       }
     });
+  }
+
+  openAddModal(){
+    console.log("openAddModal");
+    this.matDalog.open(AddProductsComponent);
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 }
