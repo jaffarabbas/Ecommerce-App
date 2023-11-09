@@ -19,3 +19,7 @@ INSERT INTO setting (TAX) VALUES
 
 
 INSERT INTO USERS (firstname,lastname,email,password,acid) VALUES('t','t','abc@abc.com','12345678',1)
+
+select * from Product 
+
+update PRODUCT set image = 'assets/images/productPic1.png'

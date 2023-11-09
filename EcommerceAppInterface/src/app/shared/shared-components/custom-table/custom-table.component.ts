@@ -38,12 +38,24 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
     }
   }
 
-  edit(){
+  idScrapper(row:any,column:any){
+    let id = column; 
+    const resultArray = [id.substring(1, id.length - 1)];
+    return row[resultArray[0]];
+  }
+
+  details(row:any,column:any){
+    let id  = this.idScrapper(row,column);
+    console.log(id);
+  }
+  edit(row:any,column:any){
+    console.log(row);
     console.log("edit");
   }
-  delete(){
+  delete(row:any,column:any){
     console.log("delete");
   }
+
   getCellContent(column: any, row: any): any {
     if (column.type === 'image') {
       return `<img src="${row[column.property]}" alt="Image" width="50" />`;

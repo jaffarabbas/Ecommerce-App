@@ -6,5 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./custom-table-btn-group.component.scss']
 })
 export class CustomTableBtnGroupComponent {
-  @Input() buttons!: any[];
+  @Output() edit:EventEmitter<any> = new EventEmitter<any>();
+  @Output() details:EventEmitter<any> = new EventEmitter<any>();
+  @Output() delete:EventEmitter<any> = new EventEmitter<any>();
 }

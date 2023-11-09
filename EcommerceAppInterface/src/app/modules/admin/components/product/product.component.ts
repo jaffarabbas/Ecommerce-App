@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit{
       {id:"4",label:"Price",type:"double",property:"Price"},
       {id:"5",label:"Category",type:"int",property:"Cid"},
       {id:"6",label:"Image",type:"image",property:"Image"},
-      {id:"7",label:"Action",type:"btngroup",property:"action"}
+      {id:"7",label:"Action",type:"btngroup",property:"[Pid]"}
     ];
     this.getProducts();
   }
