@@ -50,26 +50,27 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
     console.log(id);
   }
   edit(row:any,column:any){
-    console.log(row);
-    console.log("edit");
+    let id  = this.idScrapper(row,column);
+    console.log(id);
   }
   delete(row:any,column:any){
-    console.log("delete");
+    let id  = this.idScrapper(row,column);
+    console.log(id);
   }
 
-  getCellContent(column: any, row: any): any {
-    if (column.type === 'image') {
-      return `<img src="${row[column.property]}" alt="Image" width="50" />`;
-    } else if(column.type === 'btngroup'){
-      return `
-      <div class="adminBtnGroup">
-        <img (click)="edit()" src="../../../../assets/icons/detail.svg" height="20px"/>
-        <button><img src="../../../../assets/icons/edit.svg" height="20px"/></button>
-        <button><img src="../../../../assets/icons/delete.svg" height="20px"/></button>
-      </div>
-      `;
-    } else {
-      return row[column.property];
-    }
-  }
+  // getCellContent(column: any, row: any): any {
+  //   if (column.type === 'image') {
+  //     return `<img src="${row[column.property]}" alt="Image" width="50" />`;
+  //   } else if(column.type === 'btngroup'){
+  //     return `
+  //     <div class="adminBtnGroup">
+  //       <img (click)="edit()" src="../../../../assets/icons/detail.svg" height="20px"/>
+  //       <button><img src="../../../../assets/icons/edit.svg" height="20px"/></button>
+  //       <button><img src="../../../../assets/icons/delete.svg" height="20px"/></button>
+  //     </div>
+  //     `;
+  //   } else {
+  //     return row[column.property];
+  //   }
+  // }
 }

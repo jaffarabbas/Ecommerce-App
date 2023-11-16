@@ -1,0 +1,61 @@
+<div class="modal_header">
+  <h2 mat-dialog-title>{{data.heading}}</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close><mat-icon class="icon">close</mat-icon></button>
+  </mat-dialog-actions>
+</div>
+<mat-dialog-content class="mat-typography">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form_creater">
+    <ng-container *ngFor="let field of formFields">
+      <mat-form-field *ngIf="field.type === 'text' || field.type === 'number'">
+        <input matInput placeholder="{{field.label}}" name="{{field.property}}" ngModel />
+      </mat-form-field>
+      <mat-form-field *ngIf="field.type === 'textarea'">
+        <textarea matInput name="{{field.property}}" ngModel placeholder="{{field.label}}"></textarea>
+      </mat-form-field>
+      <mat-form-field *ngIf="field.type === 'select'">
+        <mat-select name="{{field.property}}" ngModel placeholder="{{field.label}}">-->
+          <mat-option *ngFor="let option of field.options" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="field.type === 'file'">
+        <input matInput hidden="true" name="{{field.property}}" type="file" ngModel />
+      </mat-form-field>
+    </ng-container>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</mat-dialog-content>
+
+<!--<div class="modal_header">-->
+<!--  <h2 mat-dialog-title>{{data.heading}}</h2>-->
+<!--  <mat-dialog-actions align="end">-->
+<!--    <button mat-button mat-dialog-close><mat-icon class="icon">close</mat-icon></button>-->
+<!--  </mat-dialog-actions>-->
+<!--</div>-->
+<!--<mat-dialog-content class="mat-typography">-->
+<!--  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form_creater">-->
+<!--    <ng-container *ngFor="let field of formFields">-->
+<!--      <mat-form-field *ngIf="field.type !== 'image'">-->
+<!--        <ng-container [ngSwitch]="field.type">-->
+<!--          <input *ngSwitchCase="'text'" matInput name="{{field.property}}" ngModel placeholder="{{field.label}}" />-->
+<!--          <textarea *ngSwitchCase="'textarea'" matInput name="{{field.property}}" ngModel placeholder="{{field.label}}"></textarea>-->
+<!--          <input *ngSwitchCase="'number'" matInput name="{{field.property}}" ngModel placeholder="{{field.label}}" type="number" />-->
+<!--          <mat-select *ngSwitchCase="'select'" name="{{field.property}}" ngModel placeholder="{{field.label}}">-->
+<!--            <mat-option *ngFor="let option of field.options" [value]="option.value">-->
+<!--&lt;!&ndash;              {{ option.label }}&ndash;&gt;-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--          &lt;!&ndash; Add other form types as needed &ndash;&gt;-->
+<!--        </ng-container>-->
+<!--      </mat-form-field>-->
+
+<!--      &lt;!&ndash; For image input &ndash;&gt;-->
+<!--      <mat-form-field *ngIf="field.type === 'file'">-->
+<!--        <input matInput [type]="'file'" name="{{field.property}}" ngModel placeholder="{{field.label}}" />-->
+<!--      </mat-form-field>-->
+<!--    </ng-container>-->
+<!--    <button mat-raised-button color="primary" type="submit">Submit</button>-->
+<!--  </form>-->
+<!--</mat-dialog-content>-->

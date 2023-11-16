@@ -1,13 +1,14 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {AdminProductHandlerService} from "../../../../services/apiHandler/admin-product-handler.service";
-import {MatSort} from "@angular/material/sort";
-import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import { Product } from 'src/app/models/products';
 import { tableColumnData } from 'src/app/interfaces/tableColumn';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
-import { AddProductsComponent } from './components/add-products/add-products.component';
+import {NgForm} from "@angular/forms";
+import {
+  CustomModalForAddingDataComponent
+} from "../../../../shared/shared-components/custom-modal-for-adding-data/custom-modal-for-adding-data.component";
 
 @Component({
   selector: 'app-product',
@@ -26,13 +27,13 @@ export class ProductComponent implements OnInit{
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Product>();
     this.tableColumnData = [
-      {id:"1",label:"ID",type:"int",property:"Pid"},
-      {id:"2",label:"Name",type:"string",property:"Name"},
-      {id:"3",label:"Description",type:"string",property:"Description"},
-      {id:"4",label:"Price",type:"double",property:"Price"},
-      {id:"5",label:"Category",type:"int",property:"Cid"},
-      {id:"6",label:"Image",type:"image",property:"Image"},
-      {id:"7",label:"Action",type:"btngroup",property:"[Pid]"}
+      {id:"1",label:"ID",type:"int",property:"Pid",isInForm:false},
+      {id:"2",label:"Name",type:"string",property:"Name",isInForm:true,formType:"text"},
+      {id:"3",label:"Description",type:"string",property:"Description",isInForm:true,formType:"textarea"},
+      {id:"4",label:"Price",type:"double",property:"Price",isInForm:true,formType:"number"},
+      {id:"5",label:"Category",type:"int",property:"Cid",isInForm:true,formType:"select",options:[{value:1,label:"Electronics"},{value:2,label:"Clothes"}]},
+      {id:"6",label:"Image",type:"image",property:"Image",isInForm:true,formType:"file"},
+      {id:"7",label:"Action",type:"btngroup",property:"[Pid]",isInForm:false}
     ];
     this.getProducts();
   }
@@ -48,12 +49,20 @@ export class ProductComponent implements OnInit{
     });
   }
 
-  openAddModal(){
-    console.log("openAddModal");
-    this.matDalog.open(AddProductsComponent);
+  onSubmit(form:NgForm){
+    console.log(form);
+  }
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+  openAddModal(){
+    const dialogRef = this.matDalog.open(CustomModalForAddingDataComponent, {
+      data: {
+        tableColumnData: this.tableColumnData.filter((column) => column.isInForm),
+        heading: "Add Product"
+      },
+    });
+
+    dialogRef.componentInstance.formSubmitted.subscribe((formData) => {
+      this.onSubmit(formData);
+    });
   }
 }

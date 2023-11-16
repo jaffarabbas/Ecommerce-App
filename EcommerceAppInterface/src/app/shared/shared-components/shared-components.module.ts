@@ -8,7 +8,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { CustomSubmitComponent } from './custom-submit/custom-submit.component';
 import { ErrorHandlerComponent } from './error-handler/error-handler.component';
 import { CustomInputComponent } from './custom-input/custom-input.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CustomDropdownComponent } from './custom-dropdown/custom-dropdown.component';
 import { CustomSpinnerComponent } from './custom-spinner/custom-spinner.component';
 import { MaterialModule } from '../material/material/material.module';
@@ -19,6 +19,7 @@ import { AdminSidenavListComponent } from './admin-sidenav-list/admin-sidenav-li
 import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-items.component';
 import { CustomTableComponent } from './custom-table/custom-table.component';
 import { CustomTableBtnGroupComponent } from './custom-table-btn-group/custom-table-btn-group.component';
+import { CustomModalForAddingDataComponent } from './custom-modal-for-adding-data/custom-modal-for-adding-data.component';
 
 
 
@@ -40,13 +41,15 @@ import { CustomTableBtnGroupComponent } from './custom-table-btn-group/custom-ta
     AdminSidenavItemsComponent,
     CustomTableComponent,
     CustomTableBtnGroupComponent,
+    CustomModalForAddingDataComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    ReactiveFormsModule,
-    MaterialModule
-  ],
+    imports: [
+        CommonModule,
+        RouterLink,
+        ReactiveFormsModule,
+        MaterialModule,
+        FormsModule
+    ],
   exports: [
     HeaderComponent,
     FooterComponent,

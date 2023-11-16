@@ -1,0 +1,22 @@
+.form_creater{
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+}
+
+.modal_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  h2{
+    padding: 0 25px;
+    margin-bottom: auto;
+  }
+}
+
+.icon{
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+

@@ -14,12 +14,11 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
 import {MaterialModule} from "../../shared/material/material/material.module";
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from "./components/login/login.component";
 import {MatInputModule} from "@angular/material/input";
 import { CategoriesComponent } from './components/categories/categories.component';
 import { AccountTypeComponent } from './components/account-type/account-type.component';
-import { AddProductsComponent } from './components/product/components/add-products/add-products.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
@@ -31,7 +30,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductComponent,
     CategoriesComponent,
     AccountTypeComponent,
-    AddProductsComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +39,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
