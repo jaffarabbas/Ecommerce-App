@@ -12,6 +12,7 @@ import {
 import {AdminCategoriesHandlerService} from "../../../../services/apiHandler/admin-categories-handler.service";
 import {Category} from "../../../../models/categories";
 import {DropdownItems} from "../../../../interfaces/dropDownItems";
+import {StorageService} from "../../../../services/firebase/storage.service";
 
 @Component({
   selector: 'app-product',
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit{
   constructor(
     public adminProductHandlerService:AdminProductHandlerService,
     private adminCategoriesHandlerService:AdminCategoriesHandlerService,
+    public fireStorage:StorageService,
     private matDialog:MatDialog,
     private toastr: ToastrService) {
   }
@@ -81,9 +83,25 @@ export class ProductComponent implements OnInit{
     this.tableColumnData.filter((column) => column.property == "Cid")[0].options = this.categories;
   }
 
-  onSubmit(form:NgForm){
-    console.log(form);
+  onSubmit(file:File[]){
+
   }
+
+  uploadAttachments(file:File[]){
+    // @ts-ignore
+    for (let i = 0; i < file.length; i++) {
+      // @ts-ignore
+      this.fireStorage.upload(file.value[i]).then((url:FileUrl)=>{
+        console.log(url);
+        if(url.type == 'image'){
+
+        }
+      }).catch((error)=>{
+        console.log(error);
+      });
+    }
+  }
+
 
   openAddModal(){
     const dialogRef = this.matDialog.open(CustomModalForAddingDataComponent, {

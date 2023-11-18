@@ -15,6 +15,7 @@ import {MAT_SELECT_SCROLL_STRATEGY_PROVIDER} from "@angular/material/select";
 import {MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/material/menu";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { USE_EMULATOR as USE_STORAGE_EMULATOR } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
     MAT_SELECT_SCROLL_STRATEGY_PROVIDER,
     MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
   ],
   bootstrap: [AppComponent]
 })

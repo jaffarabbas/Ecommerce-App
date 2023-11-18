@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Inject, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Inject, Output} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {NgForm} from "@angular/forms";
+import {FileHandlerService} from "../../../services/core/file-handler.service";
 
 @Component({
   selector: 'app-custom-modal-for-adding-data',
@@ -12,6 +13,7 @@ export class CustomModalForAddingDataComponent {
   heading:string = "";
   formFields: any[] = [];
 
+  fileService = inject(FileHandlerService);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.initializeFormFields();
     this.setHeading();
@@ -29,12 +31,12 @@ export class CustomModalForAddingDataComponent {
           type: field.formType,
           options: field.options || [],
         });
-        console.log(field.options);
       }
     }
   }
   onFileChange(fileInputEvent: any) {
-    console.log(fileInputEvent.target.files);
+    this.fileService.selectedFiles = fileInputEvent.target.files;
+    console.log(this.fileService.selectedFiles);
   }
   onSubmit(form: NgForm) {
     if (form.valid) {

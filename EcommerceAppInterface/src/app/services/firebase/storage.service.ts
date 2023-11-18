@@ -16,17 +16,6 @@ export class StorageService {
     if(this.fileHandler.getFileType(file) === 'image'){
       filePath = `images/${file.name}`;
       fileType = 'image';
-    }else if(this.fileHandler.getFileType(file) === 'application'){
-      if(this.fileHandler.getFileExtension(file.name) === 'pdf'){
-        filePath = `files/pdfs/${file.name}`;
-      }else if(this.fileHandler.getFileExtension(file.name) === 'docx'){
-        filePath = `files/docs/${file.name}`;
-      }else if(this.fileHandler.getFileExtension(file.name) === 'xlsx'){
-        filePath = `files/excel/${file.name}`;
-      }else if(this.fileHandler.getFileExtension(file.name) === 'pptx'){
-        filePath = `files/ppt/${file.name}`;
-      }
-      fileType = 'application';
     }
     let task = await this.angularStorage.upload(filePath, file);
     let url = await task.ref.getDownloadURL();
