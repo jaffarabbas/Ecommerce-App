@@ -1,5 +1,5 @@
 <div class="modal_header">
-  <h2 mat-dialog-title>{{data.heading}}</h2>
+  <h2 mat-dialog-title>{{heading}}</h2>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close><mat-icon class="icon">close</mat-icon></button>
   </mat-dialog-actions>
@@ -15,14 +15,16 @@
       </mat-form-field>
       <mat-form-field *ngIf="field.type === 'select'">
         <mat-select name="{{field.property}}" ngModel placeholder="{{field.label}}">-->
-          <mat-option *ngFor="let option of field.options" [value]="option.value">
-            {{ option.label }}
+          <mat-option *ngFor="let option of field.options" [value]="option.id">
+            {{ option.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="field.type === 'file'">
-        <input matInput hidden="true" name="{{field.property}}" type="file" ngModel />
-      </mat-form-field>
+      <ng-container *ngIf="field.type === 'file'">
+        <input #file [multiple]="true" [hidden]="true" style="display: none" type="file"  name="{{field.property}}" onclick="this.value=null" ngModel (change)="onFileChange($event)"/>
+        <button mat-flat-button color="primary" type="button" (click)="file.click()">Choose Images</button>
+        <br/>
+      </ng-container>
     </ng-container>
     <button mat-raised-button color="primary" type="submit">Submit</button>
   </form>

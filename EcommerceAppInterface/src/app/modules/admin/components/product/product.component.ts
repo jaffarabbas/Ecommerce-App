@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdminProductHandlerService} from "../../../../services/apiHandler/admin-product-handler.service";
 import {MatTableDataSource} from "@angular/material/table";
 import { Product } from 'src/app/models/products';
@@ -9,6 +9,9 @@ import {NgForm} from "@angular/forms";
 import {
   CustomModalForAddingDataComponent
 } from "../../../../shared/shared-components/custom-modal-for-adding-data/custom-modal-for-adding-data.component";
+import {AdminCategoriesHandlerService} from "../../../../services/apiHandler/admin-categories-handler.service";
+import {Category} from "../../../../models/categories";
+import {DropdownItems} from "../../../../interfaces/dropDownItems";
 
 @Component({
   selector: 'app-product',
@@ -18,24 +21,31 @@ import {
 export class ProductComponent implements OnInit{
   dataSource!: MatTableDataSource<Product>;
   tableColumnData!:tableColumnData[];
+  categories!:DropdownItems[];
   constructor(
     public adminProductHandlerService:AdminProductHandlerService,
-    private matDalog:MatDialog,
+    private adminCategoriesHandlerService:AdminCategoriesHandlerService,
+    private matDialog:MatDialog,
     private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Product>();
+    this.getCategories();
+    this.initializeTableColumnData();
+    this.getProducts();
+  }
+
+  initializeTableColumnData(){
     this.tableColumnData = [
       {id:"1",label:"ID",type:"int",property:"Pid",isInForm:false},
       {id:"2",label:"Name",type:"string",property:"Name",isInForm:true,formType:"text"},
       {id:"3",label:"Description",type:"string",property:"Description",isInForm:true,formType:"textarea"},
       {id:"4",label:"Price",type:"double",property:"Price",isInForm:true,formType:"number"},
-      {id:"5",label:"Category",type:"int",property:"Cid",isInForm:true,formType:"select",options:[{value:1,label:"Electronics"},{value:2,label:"Clothes"}]},
+      {id:"5",label:"Category",type:"int",property:"Cid",isInForm:true,formType:"select",options:[]},
       {id:"6",label:"Image",type:"image",property:"Image",isInForm:true,formType:"file"},
       {id:"7",label:"Action",type:"btngroup",property:"[Pid]",isInForm:false}
     ];
-    this.getProducts();
   }
 
   getProducts(){
@@ -49,12 +59,34 @@ export class ProductComponent implements OnInit{
     });
   }
 
+  getCategories(){
+    this.adminCategoriesHandlerService.getAllCategories().subscribe((data:any)=>{
+      if(data["Message"] == "Success"){
+        this.categories = data["Data"].map((item:any)=>{
+          return {
+            id:item["Cid"],
+            name:item["Cname"]
+          };
+        });
+        this.populateCategoryDropdown();
+      }else{
+        this.categories = [];
+        this.toastr.error(data["Data"]["message"]);
+      }
+    });
+  }
+
+  populateCategoryDropdown(){
+    // @ts-ignore
+    this.tableColumnData.filter((column) => column.property == "Cid")[0].options = this.categories;
+  }
+
   onSubmit(form:NgForm){
     console.log(form);
   }
 
   openAddModal(){
-    const dialogRef = this.matDalog.open(CustomModalForAddingDataComponent, {
+    const dialogRef = this.matDialog.open(CustomModalForAddingDataComponent, {
       data: {
         tableColumnData: this.tableColumnData.filter((column) => column.isInForm),
         heading: "Add Product"
@@ -65,4 +97,5 @@ export class ProductComponent implements OnInit{
       this.onSubmit(formData);
     });
   }
+
 }

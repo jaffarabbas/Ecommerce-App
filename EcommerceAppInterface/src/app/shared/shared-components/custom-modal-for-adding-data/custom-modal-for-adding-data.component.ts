@@ -14,8 +14,12 @@ export class CustomModalForAddingDataComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.initializeFormFields();
+    this.setHeading();
   }
 
+  setHeading() {
+    this.heading = this.data.heading;
+  }
   initializeFormFields() {
     for (const field of this.data.tableColumnData) {
       if (field.isInForm) {
@@ -25,11 +29,12 @@ export class CustomModalForAddingDataComponent {
           type: field.formType,
           options: field.options || [],
         });
+        console.log(field.options);
       }
     }
   }
-  csvInputChange(fileInputEvent: any) {
-    console.log(fileInputEvent.target.files[0]);
+  onFileChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files);
   }
   onSubmit(form: NgForm) {
     if (form.valid) {
