@@ -22,6 +22,10 @@ export class FileHandlerService {
     return fileName.split('.').pop()?.toLowerCase() || '';
   }
 
+  getFileUrlInString(file:File[]){
+    return file.map((file)=>file.name).join(', ');
+  }
+
   deleteAttachment(fileToDelete: File) {
     const filesArray = Array.from(this.selectedFiles);
     const index = filesArray.indexOf(fileToDelete);

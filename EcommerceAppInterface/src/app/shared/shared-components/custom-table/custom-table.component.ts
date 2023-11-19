@@ -1,9 +1,22 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  Renderer2,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { tableColumnData } from 'src/app/interfaces/tableColumn';
 import { CustomTableBtnGroupComponent } from '../custom-table-btn-group/custom-table-btn-group.component';
+import {IsActivePipe} from "../../../pipes/is-active.pipe"
 
 @Component({
   selector: 'app-custom-table',
@@ -17,18 +30,23 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
   @Output() addData:EventEmitter<any> = new EventEmitter<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('imageCell', { static: true }) imageCell!: TemplateRef<any>;
+  @ViewChild('btnGroupCell', { static: true }) btnGroupCell!: TemplateRef<any>;
+  @ViewChild('dateCell', { static: true }) dateCell!: TemplateRef<any>;
+  @ViewChild('isActiveCell', { static: true }) isActiveCell!: TemplateRef<any>;
+  @ViewChild('defaultCell', { static: true }) defaultCell!: TemplateRef<any>;
+
   displayedColumns!: string[];
   actionButtons:any[] = [];
   constructor() {
   }
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
     this.displayedColumns = this.tableColumnData.map(column => column.property);
   }
 
   ngAfterViewInit() {
-   
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -40,7 +58,7 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
   }
 
   idScrapper(row:any,column:any){
-    let id = column; 
+    let id = column;
     const resultArray = [id.substring(1, id.length - 1)];
     return row[resultArray[0]];
   }
@@ -58,6 +76,18 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
     console.log(id);
   }
 
+  getCellTemplate(column: any): any {
+    const templateMappings: { [key: string]: any } = {
+      'image': this.imageCell,
+      'btngroup': this.btnGroupCell,
+      'date': this.dateCell,
+      'active': this.isActiveCell,
+      'default': this.defaultCell
+    };
+
+    const template = templateMappings[column.type] || templateMappings['default'];
+    return template;
+  }
   // getCellContent(column: any, row: any): any {
   //   if (column.type === 'image') {
   //     return `<img src="${row[column.property]}" alt="Image" width="50" />`;

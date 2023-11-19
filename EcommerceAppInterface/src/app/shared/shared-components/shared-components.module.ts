@@ -21,6 +21,10 @@ import { CustomTableComponent } from './custom-table/custom-table.component';
 import { CustomTableBtnGroupComponent } from './custom-table-btn-group/custom-table-btn-group.component';
 import { CustomModalForAddingDataComponent } from './custom-modal-for-adding-data/custom-modal-for-adding-data.component';
 import { CustomImageGridForModalComponent } from './custom-image-grid-for-modal/custom-image-grid-for-modal.component';
+import {IsActivePipe} from "../../pipes/is-active.pipe";
+import {AppModule} from "../../app.module";
+import { IsActiveStatusComponent } from './is-active-status/is-active-status.component';
+import {PipesModule} from "../../pipes/pipes.module";
 
 
 
@@ -44,14 +48,16 @@ import { CustomImageGridForModalComponent } from './custom-image-grid-for-modal/
     CustomTableBtnGroupComponent,
     CustomModalForAddingDataComponent,
     CustomImageGridForModalComponent,
+    IsActiveStatusComponent,
   ],
-    imports: [
-        CommonModule,
-        RouterLink,
-        ReactiveFormsModule,
-        MaterialModule,
-        FormsModule
-    ],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ReactiveFormsModule,
+    MaterialModule,
+    FormsModule,
+    PipesModule,
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,

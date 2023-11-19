@@ -12,7 +12,7 @@ export class AdminProductHandlerService {
   constructor(private productServices:ProductService,private localStorageService:LocalStorageService) { }
 
   postProduct(product:Product){
-    let token = this.localStorageService.getItem("token")["JWTToken"];
+    let token = this.localStorageService.getItem("adminToken")["JWTToken"];
     return this.productServices.create(product,ApiUrls.API_END_POINTS.Products.AddProduct,token);
   }
 

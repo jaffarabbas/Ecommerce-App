@@ -14,6 +14,8 @@ import {Category} from "../../../../models/categories";
 import {DropdownItems} from "../../../../interfaces/dropDownItems";
 import {StorageService} from "../../../../services/firebase/storage.service";
 import {FileHandlerService} from "../../../../services/core/file-handler.service";
+import {FileUrl} from "../../../../interfaces/fileUrl";
+import {SpinnerFlagService} from "../../../../services/core/spinner-flag.service";
 
 @Component({
   selector: 'app-product',
@@ -24,10 +26,12 @@ export class ProductComponent implements OnInit{
   dataSource!: MatTableDataSource<Product>;
   tableColumnData!:tableColumnData[];
   categories!:DropdownItems[];
+  private imageUrls:FileUrl[] = [];
   constructor(
     public adminProductHandlerService:AdminProductHandlerService,
     private adminCategoriesHandlerService:AdminCategoriesHandlerService,
     public fireStorage:StorageService,
+    private spinnerService:SpinnerFlagService,
     private fileService:FileHandlerService,
     private matDialog:MatDialog,
     private toastr: ToastrService) {
@@ -42,13 +46,16 @@ export class ProductComponent implements OnInit{
 
   initializeTableColumnData(){
     this.tableColumnData = [
-      {id:"1",label:"ID",type:"int",property:"Pid",formController:{isInForm:false,validation:{required:true}}},
-      {id:"2",label:"Name",type:"string",property:"Name",formController:{isInForm:true,formType:"text",validation:{required:true}}},
-      {id:"3",label:"Description",type:"string",property:"Description",formController:{isInForm:true,formType:"textarea",validation:{required:true}}},
-      {id:"4",label:"Price",type:"double",property:"Price",formController:{isInForm:true,formType:"number",validation:{required:true}}},
-      {id:"5",label:"Category",type:"int",property:"Cid",formController:{isInForm:true,formType:"select",options:[],validation:{required:true}}},
-      {id:"6",label:"Image",type:"image",property:"Image",formController:{isInForm:true,formType:"file",validation:{required:true}}},
-      {id:"7",label:"Action",type:"btngroup",property:"[Pid]",formController:{isInForm:false}}
+      {id:"1",label:"ID",type:"int",property:"Pid",formController:{isInForm:false,validation:{required:false}}},
+      {id:"2",label:"Name",type:"string",property:"Name",formController:{isInForm:true,formType:"text",validation:{required:false}}},
+      {id:"3",label:"Description",type:"string",property:"Description",formController:{isInForm:true,formType:"textarea",validation:{required:false}}},
+      {id:"4",label:"Price",type:"double",property:"Price",formController:{isInForm:true,formType:"number",validation:{required:false}}},
+      {id:"5",label:"Quantity",type:"int",property:"Quantity",formController:{isInForm:true,formType:"number",validation:{required:false}}},
+      {id:"6",label:"Category",type:"int",property:"Cid",formController:{isInForm:true,formType:"select",options:[],validation:{required:false}}},
+      {id:"7",label:"Created On",type:"date",property:"CreatedOn"},
+      {id:"8",label:"Active",type:"active",property:"ProductStatus"},
+      {id:"9",label:"Image",type:"image",property:"Image",formController:{isInForm:true,formType:"file",validation:{required:false}}},
+      {id:"10",label:"Action",type:"btngroup",property:"[Pid]",formController:{isInForm:false}}
     ];
   }
 
@@ -88,30 +95,63 @@ export class ProductComponent implements OnInit{
   onSubmit(formData:NgForm){
     // @ts-ignore
     formData["Image"]! = this.fileService.selectedFiles;
-    console.log(formData);
-  }
-
-  uploadAttachments(file:File[]){
-    // @ts-ignore
-    for (let i = 0; i < file.length; i++) {
+    let productData:Product = {
       // @ts-ignore
-      this.fireStorage.upload(file.value[i]).then((url:FileUrl)=>{
-        console.log(url);
-        if(url.type == 'image'){
-
-        }
-      }).catch((error)=>{
-        console.log(error);
-      });
+      name:formData["Name"],
+      // @ts-ignore
+      cid:formData["Cid"],
+      // @ts-ignore
+      description:formData["Description"],
+      // @ts-ignore
+      price:formData["Price"],
+      // @ts-ignore
+      quantity:formData["Quantity"],
     }
+    this.spinnerService.spinnerFlag = true;
+    // @ts-ignore
+    this.uploadAttachments(formData["Image"]).then(()=>{
+      productData.image = this.imageUrls.map((url)=>url.url).join(',');
+      this.adminProductHandlerService.postProduct(productData).subscribe((data:any)=>{
+        if(data["Message"] == "Success"){
+          this.toastr.success("Product Added Successfully");
+          this.getProducts();
+        }else{
+          this.toastr.error(data["Data"]["message"]);
+          // this.fireStorage.delete(this.imageUrls.map((url)=>url.name));
+        }
+        this.spinnerService.spinnerFlag = false;
+        this.matDialog.closeAll()
+        this.fileService.selectedFiles = [];
+      });
+    }).catch((error)=>{
+      console.log(error);
+      this.spinnerService.spinnerFlag = false;
+      this.matDialog.closeAll()
+    });
   }
 
+  async uploadAttachments(files: File[]) {
+    let fileArray = Array.from(files);
+    const uploadPromises = fileArray.map(async (file) => {
+      try {
+        // @ts-ignore
+        const url:FileUrl = await this.fireStorage.upload(file);
+        if (url.type === 'image') {
+          this.imageUrls.push(url);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    });
+
+    await Promise.all(uploadPromises);
+  }
 
   openAddModal(){
     const dialogRef = this.matDialog.open(CustomModalForAddingDataComponent, {
       data: {
         tableColumnData: this.tableColumnData.filter((column) => column.formController?.isInForm),
-        heading: "Add Product"
+        heading: "Add Product",
       },
     });
 

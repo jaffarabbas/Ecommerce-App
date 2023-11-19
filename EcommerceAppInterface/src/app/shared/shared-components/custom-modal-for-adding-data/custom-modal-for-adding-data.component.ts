@@ -2,6 +2,7 @@ import {Component, EventEmitter, inject, Inject, Output} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {NgForm} from "@angular/forms";
 import {FileHandlerService} from "../../../services/core/file-handler.service";
+import {SpinnerFlagService} from "../../../services/core/spinner-flag.service";
 
 @Component({
   selector: 'app-custom-modal-for-adding-data',
@@ -14,6 +15,7 @@ export class CustomModalForAddingDataComponent {
   formFields: any[] = [];
 
   fileService = inject(FileHandlerService);
+  spinnerService = inject(SpinnerFlagService);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.initializeFormFields();
     this.setHeading();

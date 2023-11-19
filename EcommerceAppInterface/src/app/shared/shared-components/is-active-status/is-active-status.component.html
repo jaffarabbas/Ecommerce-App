@@ -1,0 +1,6 @@
+<ng-template [ngIf]="!isActive" [ngIfElse]="notActive">
+  <mat-icon class="active">done</mat-icon>
+</ng-template>
+<ng-template #notActive>
+  <mat-icon class="notActive">close</mat-icon>
+</ng-template>

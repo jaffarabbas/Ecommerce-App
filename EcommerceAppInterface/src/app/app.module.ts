@@ -16,6 +16,8 @@ import {MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER} from "@angular/material/menu"
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { USE_EMULATOR as USE_STORAGE_EMULATOR } from '@angular/fire/compat/storage';
+import { IsActivePipe } from './pipes/is-active.pipe';
+import {PipesModule} from "./pipes/pipes.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { USE_EMULATOR as USE_STORAGE_EMULATOR } from '@angular/fire/compat/stora
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FirebaseModule
+    FirebaseModule,
+    PipesModule
   ],
   providers: [
     MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER,
