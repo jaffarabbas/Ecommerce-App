@@ -20,6 +20,7 @@ import { AdminSidenavItemsComponent } from './admin-sidenav-items/admin-sidenav-
 import { CustomTableComponent } from './custom-table/custom-table.component';
 import { CustomTableBtnGroupComponent } from './custom-table-btn-group/custom-table-btn-group.component';
 import { CustomModalForAddingDataComponent } from './custom-modal-for-adding-data/custom-modal-for-adding-data.component';
+import { CustomImageGridForModalComponent } from './custom-image-grid-for-modal/custom-image-grid-for-modal.component';
 
 
 
@@ -42,6 +43,7 @@ import { CustomModalForAddingDataComponent } from './custom-modal-for-adding-dat
     CustomTableComponent,
     CustomTableBtnGroupComponent,
     CustomModalForAddingDataComponent,
+    CustomImageGridForModalComponent,
   ],
     imports: [
         CommonModule,

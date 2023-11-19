@@ -8,36 +8,24 @@
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form_creater">
     <ng-container *ngFor="let field of formFields">
       <mat-form-field *ngIf="field.type === 'text' || field.type === 'number'">
-        <input matInput placeholder="{{field.label}}" name="{{field.property}}" ngModel />
+        <input matInput placeholder="{{field.label}}" type="{{field.type}}" name="{{field.property}}" ngModel [required]="field.validation.required"/>
       </mat-form-field>
       <mat-form-field *ngIf="field.type === 'textarea'">
-        <textarea matInput name="{{field.property}}" ngModel placeholder="{{field.label}}"></textarea>
+        <textarea matInput name="{{field.property}}" ngModel placeholder="{{field.label}}" [required]="field.validation.required"></textarea>
       </mat-form-field>
       <mat-form-field *ngIf="field.type === 'select'">
-        <mat-select name="{{field.property}}" ngModel placeholder="{{field.label}}">-->
+        <mat-select name="{{field.property}}" ngModel placeholder="{{field.label}}" [required]="field.validation.required">-->
           <mat-option *ngFor="let option of field.options" [value]="option.id">
             {{ option.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <ng-container *ngIf="field.type === 'file'">
-        <input #file [multiple]="true" [hidden]="true" style="display: none" type="file"  name="{{field.property}}" onclick="this.value=null" ngModel (change)="onFileChange($event)" [accept]="'image/*'"/>
+        <input #file [multiple]="true" [hidden]="true" style="display: none" type="file" name="{{field.property}}" onclick="this.value=null" ngModel (change)="onFileChange($event)" [accept]="'image/*'" [required]="field.validation.required"/>
         <button mat-flat-button color="primary" type="button" (click)="file.click()">Choose Images</button>
-        <br/>
       </ng-container>
     </ng-container>
-    <div class="attachments_list">
-      <ng-container *ngFor="let file of this.fileService.selectedFiles">
-        <ng-container [ngSwitch]="fileService.getFileType(file)">
-          <div class="image_div">
-            <mat-icon class="close_img" (click)="fileService.deleteAttachment(file)">close</mat-icon>
-            <div class="attachments_list_item" >
-              <img height="100px" width="100px" *ngSwitchCase="'image'" [src]="fileService.getSafeUrl(file)">
-            </div>
-          </div>
-        </ng-container>
-      </ng-container>
-    </div>
+    <app-custom-image-grid-for-modal/>
     <button mat-raised-button color="primary" type="submit">Submit</button>
   </form>
 </mat-dialog-content>

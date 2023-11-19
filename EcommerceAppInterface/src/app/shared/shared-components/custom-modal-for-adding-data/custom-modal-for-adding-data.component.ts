@@ -24,22 +24,24 @@ export class CustomModalForAddingDataComponent {
   }
   initializeFormFields() {
     for (const field of this.data.tableColumnData) {
-      if (field.isInForm) {
+      if (field.formController.isInForm) {
         this.formFields.push({
           property: field.property,
           label: field.label,
-          type: field.formType,
-          options: field.options || [],
+          type: field.formController.formType,
+          validation: field.formController.validation,
+          options: field.formController.options || [],
         });
       }
     }
   }
   onFileChange(fileInputEvent: any) {
     this.fileService.selectedFiles = fileInputEvent.target.files;
-    console.log(this.fileService.selectedFiles);
   }
   onSubmit(form: NgForm) {
     if (form.valid) {
+      if (this.fileService.selectedFiles.length > 0)
+          form.value.Image = this.fileService.selectedFiles;
       this.formSubmitted.emit(form.value);
     }
   }

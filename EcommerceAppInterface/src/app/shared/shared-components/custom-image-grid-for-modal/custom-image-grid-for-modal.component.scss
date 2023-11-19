@@ -1,0 +1,31 @@
+
+.attachments_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.attachments_list.attachments_list_mini{
+  justify-content: start;
+}
+
+.image_div{
+  position: relative;
+  margin: 10px;
+}
+
+.close_img{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+  padding: 1px 2px;
+}

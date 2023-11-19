@@ -30,12 +30,4 @@ export class FileHandlerService {
     }
     this.selectedFiles = [...filesArray];
   }
-
-  getFileArrayStringList(): string[] {
-    const fileArrayStringList: string[] = [];
-    for (const file of this.selectedFiles) {
-      fileArrayStringList.push(file.name);
-    }
-    return fileArrayStringList;
-  }
 }

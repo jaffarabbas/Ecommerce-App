@@ -1,0 +1,13 @@
+<div class="attachments_list" [ngClass]="{'attachments_list_mini':this.fileService.selectedFiles.length < 3}">
+  <ng-container *ngFor="let file of this.fileService.selectedFiles">
+    <ng-container [ngSwitch]="fileService.getFileType(file)">
+      <div class="image_div">
+        <mat-icon class="close_img" (click)="fileService.deleteAttachment(file)">close</mat-icon>
+        <div class="attachments_list_item" >
+          <img height="100px" width="100px" *ngSwitchCase="'image'" [src]="fileService.getSafeUrl(file)">
+          <br>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

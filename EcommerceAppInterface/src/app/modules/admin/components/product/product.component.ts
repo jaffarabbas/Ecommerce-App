@@ -13,6 +13,7 @@ import {AdminCategoriesHandlerService} from "../../../../services/apiHandler/adm
 import {Category} from "../../../../models/categories";
 import {DropdownItems} from "../../../../interfaces/dropDownItems";
 import {StorageService} from "../../../../services/firebase/storage.service";
+import {FileHandlerService} from "../../../../services/core/file-handler.service";
 
 @Component({
   selector: 'app-product',
@@ -27,6 +28,7 @@ export class ProductComponent implements OnInit{
     public adminProductHandlerService:AdminProductHandlerService,
     private adminCategoriesHandlerService:AdminCategoriesHandlerService,
     public fireStorage:StorageService,
+    private fileService:FileHandlerService,
     private matDialog:MatDialog,
     private toastr: ToastrService) {
   }
@@ -40,13 +42,13 @@ export class ProductComponent implements OnInit{
 
   initializeTableColumnData(){
     this.tableColumnData = [
-      {id:"1",label:"ID",type:"int",property:"Pid",isInForm:false},
-      {id:"2",label:"Name",type:"string",property:"Name",isInForm:true,formType:"text"},
-      {id:"3",label:"Description",type:"string",property:"Description",isInForm:true,formType:"textarea"},
-      {id:"4",label:"Price",type:"double",property:"Price",isInForm:true,formType:"number"},
-      {id:"5",label:"Category",type:"int",property:"Cid",isInForm:true,formType:"select",options:[]},
-      {id:"6",label:"Image",type:"image",property:"Image",isInForm:true,formType:"file"},
-      {id:"7",label:"Action",type:"btngroup",property:"[Pid]",isInForm:false}
+      {id:"1",label:"ID",type:"int",property:"Pid",formController:{isInForm:false,validation:{required:true}}},
+      {id:"2",label:"Name",type:"string",property:"Name",formController:{isInForm:true,formType:"text",validation:{required:true}}},
+      {id:"3",label:"Description",type:"string",property:"Description",formController:{isInForm:true,formType:"textarea",validation:{required:true}}},
+      {id:"4",label:"Price",type:"double",property:"Price",formController:{isInForm:true,formType:"number",validation:{required:true}}},
+      {id:"5",label:"Category",type:"int",property:"Cid",formController:{isInForm:true,formType:"select",options:[],validation:{required:true}}},
+      {id:"6",label:"Image",type:"image",property:"Image",formController:{isInForm:true,formType:"file",validation:{required:true}}},
+      {id:"7",label:"Action",type:"btngroup",property:"[Pid]",formController:{isInForm:false}}
     ];
   }
 
@@ -80,11 +82,13 @@ export class ProductComponent implements OnInit{
 
   populateCategoryDropdown(){
     // @ts-ignore
-    this.tableColumnData.filter((column) => column.property == "Cid")[0].options = this.categories;
+    this.tableColumnData.filter((column) => column.property == "Cid")[0].formController.options = this.categories;
   }
 
-  onSubmit(file:File[]){
-
+  onSubmit(formData:NgForm){
+    // @ts-ignore
+    formData["Image"]! = this.fileService.selectedFiles;
+    console.log(formData);
   }
 
   uploadAttachments(file:File[]){
@@ -106,7 +110,7 @@ export class ProductComponent implements OnInit{
   openAddModal(){
     const dialogRef = this.matDialog.open(CustomModalForAddingDataComponent, {
       data: {
-        tableColumnData: this.tableColumnData.filter((column) => column.isInForm),
+        tableColumnData: this.tableColumnData.filter((column) => column.formController?.isInForm),
         heading: "Add Product"
       },
     });
