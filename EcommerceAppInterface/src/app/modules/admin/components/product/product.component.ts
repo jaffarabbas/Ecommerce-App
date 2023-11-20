@@ -147,6 +147,10 @@ export class ProductComponent implements OnInit{
     await Promise.all(uploadPromises);
   }
 
+  editProducts(id:number){
+    console.log(id);
+  }
+
   openAddModal(){
     const dialogRef = this.matDialog.open(CustomModalForAddingDataComponent, {
       data: {

@@ -28,6 +28,9 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
   @Input() dataSource!: MatTableDataSource<any>;
   @Input() tableColumnData!:tableColumnData[];
   @Output() addData:EventEmitter<any> = new EventEmitter<any>();
+  @Output() editData:EventEmitter<any> = new EventEmitter<any>();
+  @Output() deleteData:EventEmitter<any> = new EventEmitter<any>();
+  @Output() dataDetails:EventEmitter<any> = new EventEmitter<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('imageCell', { static: true }) imageCell!: TemplateRef<any>;
@@ -65,11 +68,10 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
 
   details(row:any,column:any){
     let id  = this.idScrapper(row,column);
-    console.log(id);
   }
   edit(row:any,column:any){
     let id  = this.idScrapper(row,column);
-    console.log(id);
+    this.editData.emit(id);
   }
   delete(row:any,column:any){
     let id  = this.idScrapper(row,column);
@@ -88,19 +90,4 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
     const template = templateMappings[column.type] || templateMappings['default'];
     return template;
   }
-  // getCellContent(column: any, row: any): any {
-  //   if (column.type === 'image') {
-  //     return `<img src="${row[column.property]}" alt="Image" width="50" />`;
-  //   } else if(column.type === 'btngroup'){
-  //     return `
-  //     <div class="adminBtnGroup">
-  //       <img (click)="edit()" src="../../../../assets/icons/detail.svg" height="20px"/>
-  //       <button><img src="../../../../assets/icons/edit.svg" height="20px"/></button>
-  //       <button><img src="../../../../assets/icons/delete.svg" height="20px"/></button>
-  //     </div>
-  //     `;
-  //   } else {
-  //     return row[column.property];
-  //   }
-  // }
 }
