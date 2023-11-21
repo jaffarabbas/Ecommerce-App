@@ -46,7 +46,7 @@ namespace EcommerceAppBackend.Controllers
             var tokenkey = Encoding.UTF8.GetBytes(_setting.securitykey);
             var tokenHandler = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(2),
+                expires: DateTime.Now.AddDays(1),
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(tokenkey), SecurityAlgorithms.HmacSha256)
                 );
             tokenResponce.JWTToken = new JwtSecurityTokenHandler().WriteToken(tokenHandler);
@@ -68,7 +68,7 @@ namespace EcommerceAppBackend.Controllers
                         new Claim(ClaimTypes.Name,pUser.Uid.ToString()),
                     }
                 ),
-                Expires = DateTime.Now.AddDays(1),
+                Expires = DateTime.Now.AddMilliseconds(1000),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenkey), SecurityAlgorithms.HmacSha256)
             };
 

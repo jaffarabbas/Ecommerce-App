@@ -89,3 +89,4 @@ J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.genruntimeconfig.cache
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\ref\EcommerceAppBackend.dll
 J:\GitHub\Ecommerce-App\EcommerceAppBackend\bin\Debug\net7.0\launchSettings.json
+J:\GitHub\Ecommerce-App\EcommerceAppBackend\obj\Debug\net7.0\EcommerceAppBackend.sourcelink.json
