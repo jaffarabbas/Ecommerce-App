@@ -4,71 +4,6 @@
     "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj": {}
   },
   "projects": {
-    "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj",
-        "projectName": "CustomMiddlewareCollection",
-        "projectPath": "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj",
-        "packagesPath": "C:\\Users\\DARKLORD\\.nuget\\packages\\",
-        "outputPath": "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\DARKLORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.AspNetCore": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[7.0.11, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -83,20 +18,16 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj": {
-                "projectPath": "J:\\GitHub\\Custom-Middleware-Collection\\CustomMiddlewareCollection\\CustomMiddlewareCollection.csproj"
-              }
-            }
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -106,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -153,6 +84,10 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.5, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -177,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
