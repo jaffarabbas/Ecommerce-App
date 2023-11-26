@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceAppBackend", "EcommerceAppBackend.csproj", "{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMiddlewareCollection", "..\CustomMiddlewareProject\CustomMiddlewareCollection.csproj", "{464A5592-7661-4831-8C0C-24F9A3C86DAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC96F45A-AE73-4E5F-BA76-ED94B8C96246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{464A5592-7661-4831-8C0C-24F9A3C86DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464A5592-7661-4831-8C0C-24F9A3C86DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464A5592-7661-4831-8C0C-24F9A3C86DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464A5592-7661-4831-8C0C-24F9A3C86DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,14 +4,14 @@
     "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj": {}
   },
   "projects": {
-    "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj": {
+    "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
-        "projectName": "EcommerceAppBackend",
-        "projectPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
+        "projectUniqueName": "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj",
+        "projectName": "CustomMiddlewareCollection",
+        "projectPath": "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj",
         "packagesPath": "C:\\Users\\DARKLORD\\.nuget\\packages\\",
-        "outputPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\obj\\",
+        "outputPath": "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DARKLORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,49 +40,118 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
+        "projectName": "EcommerceAppBackend",
+        "projectPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
+        "packagesPath": "C:\\Users\\DARKLORD\\.nuget\\packages\\",
+        "outputPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DARKLORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj": {
+                "projectPath": "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
             },
             "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
-              "version": "[5.2.9, )"
+              "version": "[5.3.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
