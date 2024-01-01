@@ -147,8 +147,15 @@ export class ProductComponent implements OnInit{
     await Promise.all(uploadPromises);
   }
 
+  details(id:number){
+    console.log(id);
+  }
   editProducts(id:number){
     console.log(id);
+  }
+
+  refresh(){
+    this.getProducts();
   }
 
   openAddModal(){

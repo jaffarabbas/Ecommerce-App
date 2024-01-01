@@ -31,6 +31,7 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
   @Output() editData:EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteData:EventEmitter<any> = new EventEmitter<any>();
   @Output() dataDetails:EventEmitter<any> = new EventEmitter<any>();
+  @Output() refreshData:EventEmitter<any> = new EventEmitter<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('imageCell', { static: true }) imageCell!: TemplateRef<any>;
@@ -68,6 +69,7 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
 
   details(row:any,column:any){
     let id  = this.idScrapper(row,column);
+    this.dataDetails.emit(id);
   }
   edit(row:any,column:any){
     let id  = this.idScrapper(row,column);
@@ -76,6 +78,10 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
   delete(row:any,column:any){
     let id  = this.idScrapper(row,column);
     console.log(id);
+  }
+
+  refresh(){
+    this.refreshData.emit();
   }
 
   getCellTemplate(column: any): any {

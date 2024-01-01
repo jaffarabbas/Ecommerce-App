@@ -1,5 +1,8 @@
 <div class="table_section example-container">
-    <h2>{{tableName}}</h2>
+    <div class="top_header">
+      <h2>{{tableName}}</h2>
+      <button class="refresh" mat-raised-button color="primary" (click)="refresh()">refresh</button>
+    </div>
     <div class="admin_crud_table_header">
       <button (click)="addData.emit()" mat-raised-button color="primary">Add Prodcuts</button>
       <div>

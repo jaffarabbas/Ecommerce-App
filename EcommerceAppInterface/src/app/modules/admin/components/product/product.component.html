@@ -1,1 +1,1 @@
-<app-custom-table (addData)="openAddModal()" (editData)="editProducts($event)" tableName="Products" [tableColumnData]="tableColumnData" [dataSource]="dataSource"></app-custom-table>
+<app-custom-table (addData)="openAddModal()" (editData)="editProducts($event)" (dataDetails)="details($event)" tableName="Products" (refreshData)="refresh()" [tableColumnData]="tableColumnData" [dataSource]="dataSource"></app-custom-table>
