@@ -8,13 +8,13 @@
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form_creater">
     <ng-container *ngFor="let field of formFields">
       <mat-form-field *ngIf="field.type === 'text' || field.type === 'number'">
-        <input matInput placeholder="{{field.label}}" type="{{field.type}}" name="{{field.property}}" ngModel [required]="field.validation.required"/>
+        <input value="1" matInput placeholder="{{field.label}}" type="{{field.type}}" name="{{field.property}}" ngModel [required]="field.validation.required"/>
       </mat-form-field>
       <mat-form-field *ngIf="field.type === 'textarea'">
         <textarea matInput name="{{field.property}}" ngModel placeholder="{{field.label}}" [required]="field.validation.required"></textarea>
       </mat-form-field>
       <mat-form-field *ngIf="field.type === 'select'">
-        <mat-select name="{{field.property}}" ngModel placeholder="{{field.label}}" [required]="field.validation.required">-->
+        <mat-select name="{{field.property}}" ngModel placeholder="{{field.label}}" [required]="field.validation.required">
           <mat-option *ngFor="let option of field.options" [value]="option.id">
             {{ option.name }}
           </mat-option>

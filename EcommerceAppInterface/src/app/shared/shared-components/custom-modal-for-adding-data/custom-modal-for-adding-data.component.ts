@@ -1,15 +1,18 @@
-import {Component, EventEmitter, inject, Inject, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Inject, Input, OnInit, Output} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {NgForm} from "@angular/forms";
 import {FileHandlerService} from "../../../services/core/file-handler.service";
 import {SpinnerFlagService} from "../../../services/core/spinner-flag.service";
+import { Product } from 'src/app/models/products';
 
 @Component({
   selector: 'app-custom-modal-for-adding-data',
   templateUrl: './custom-modal-for-adding-data.component.html',
   styleUrls: ['./custom-modal-for-adding-data.component.scss']
 })
-export class CustomModalForAddingDataComponent {
+export class CustomModalForAddingDataComponent implements OnInit {
+  @Input() isEditForm:boolean = false;
+  @Input() editFormData!:Product;
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter<any>();
   heading:string = "";
   formFields: any[] = [];
@@ -17,6 +20,10 @@ export class CustomModalForAddingDataComponent {
   fileService = inject(FileHandlerService);
   spinnerService = inject(SpinnerFlagService);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    
+  }
+
+  ngOnInit(): void {
     this.initializeFormFields();
     this.setHeading();
   }
@@ -24,6 +31,7 @@ export class CustomModalForAddingDataComponent {
   setHeading() {
     this.heading = this.data.heading;
   }
+
   initializeFormFields() {
     for (const field of this.data.tableColumnData) {
       if (field.formController.isInForm) {
