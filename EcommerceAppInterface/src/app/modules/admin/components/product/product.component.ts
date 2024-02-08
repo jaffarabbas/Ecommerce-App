@@ -92,19 +92,13 @@ export class ProductComponent implements OnInit{
     this.tableColumnData.filter((column) => column.property == "Cid")[0].formController.options = this.categories;
   }
 
-  onSubmit(formData:NgForm){
-    // @ts-ignore
+  onSubmit(formData:any){
     formData["Image"]! = this.fileService.selectedFiles;
     let productData:Product = {
-      // @ts-ignore
       name:formData["Name"],
-      // @ts-ignore
       cid:formData["Cid"],
-      // @ts-ignore
       description:formData["Description"],
-      // @ts-ignore
       price:formData["Price"],
-      // @ts-ignore
       quantity:formData["Quantity"],
     }
     this.spinnerService.spinnerFlag = true;
