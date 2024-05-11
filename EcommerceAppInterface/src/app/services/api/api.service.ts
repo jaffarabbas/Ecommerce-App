@@ -25,6 +25,7 @@ export class ApiService<T> {
   private createRequestOptions(token?: string): { headers: HttpHeaders } {
     let headers = new HttpHeaders();
     if (token) {
+      console.log('token: ', token)
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
     return { headers };
