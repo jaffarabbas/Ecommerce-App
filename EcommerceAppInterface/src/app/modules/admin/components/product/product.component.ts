@@ -153,24 +153,16 @@ export class ProductComponent implements OnInit{
   deleteProducts(id:number){
     // this.adminProductHandlerService.
     this.customAlertDialogService.openDialog("Product","product","0.0ms","0.0ms",() =>{
-      this.adminProductHandlerService.deleteProduct(id).subscribe((data:any)=>{
-        if(data["Message"] == "Success"){
-          this.toastr.success("Product Deleted Successfully");
-          this.getProducts();
-        }else{
-          this.toastr.error(data["Data"]["message"]);
-        }
-      });
-      // this.deleteImagesFromFireStorage(id).then(() => {
-      //   this.adminProductHandlerService.deleteProduct(id).subscribe((data:any)=>{
-      //     if(data["Message"] == "Success"){
-      //       this.toastr.success("Product Deleted Successfully");
-      //       this.getProducts();
-      //     }else{
-      //       this.toastr.error(data["Data"]["message"]);
-      //     }
-      //   });
-      // })
+      this.deleteImagesFromFireStorage(id).then(() => {
+        this.adminProductHandlerService.deleteProduct(id).subscribe((data:any)=>{
+          if(data["Message"] == "Success"){
+            this.toastr.success("Product Deleted Successfully");
+            this.getProducts();
+          }else{
+            this.toastr.error(data["Data"]["message"]);
+          }
+        });
+      })
     });
   }
 
@@ -180,7 +172,7 @@ export class ProductComponent implements OnInit{
         console.log(data["Data"]["Image"])
         let dataImageList = data["Data"]["Image"].split(",")
         dataImageList.forEach((data:any) => {
-          this.fireStorage.delete(data).then(() => {
+          this.fireStorage.delete(data).then((flag) => {
             console.log('File deleted')
           })
         })

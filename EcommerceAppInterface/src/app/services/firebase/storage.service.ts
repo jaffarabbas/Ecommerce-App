@@ -27,8 +27,25 @@ export class StorageService {
   }
 
   async delete(url:any){
-    await this.angularStorage.storage.refFromURL(url).delete().then(()=>{
-      console.log("File deleted successfully");
-    });
+    try {
+      // Attempt to get metadata of the file
+      const metadata = await this.angularStorage.storage.refFromURL(url).getMetadata();
+
+      // If metadata exists, the file exists
+      if (metadata) {
+        // Attempt to delete the file
+        await this.angularStorage.storage.refFromURL(url).delete();
+        console.log("File deleted successfully");
+        return true;
+      } else {
+        // File does not exist
+        console.log("File does not exist");
+        return false;
+      }
+    } catch (error) {
+      // Handle the error when the file doesn't exist
+      console.log("Error deleting file:", error);
+      return false;
+    }
   }
 }

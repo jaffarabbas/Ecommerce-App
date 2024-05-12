@@ -27,6 +27,7 @@ namespace EcommerceAppBackend.Services.ProductServices
         {
             var productEntity = await _context.Products.FirstOrDefaultAsync(x => x.Pid == id);
             var result = _context.Products.Remove(productEntity!);
+            await _context.SaveChangesAsync();
             return result != null ? true : false;
         }
 
