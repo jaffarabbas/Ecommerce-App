@@ -17,7 +17,16 @@ export class AdminProductHandlerService {
   }
 
   public getAllProducts(){
-    let token = this.localStorageService.getItem("adminToken")["JWTToken"];
-    return this.productServices.getAll(ApiUrls.API_END_POINTS.Products.GetProducts,token);
+    // let token = this.localStorageService.getItem("adminToken")["JWTToken"];
+    return this.productServices.getAll(ApiUrls.API_END_POINTS.Products.GetProducts);
+  }
+
+  public getProduct(id:number){
+    // let token = this.localStorageService.getItem("adminToken")["JWTToken"];
+    return this.productServices.getById(id,ApiUrls.API_END_POINTS.Products.GetProduct);
+  }
+
+  public deleteProduct(id:number){
+    return this.productServices.delete(id,ApiUrls.API_END_POINTS.Products.DeleteProduct);
   }
 }

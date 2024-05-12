@@ -11,7 +11,6 @@ export class AdminCategoriesHandlerService {
   constructor(private categoriesService:CategoriesService,private localStorageService:LocalStorageService) { }
 
   public getAllCategories(){
-    let token = this.localStorageService.getItem("adminToken")["JWTToken"];
-    return this.categoriesService.getAll(ApiUrls.API_END_POINTS.Categories.GetAllCategories,token);
+    return this.categoriesService.getAll(ApiUrls.API_END_POINTS.Categories.GetAllCategories);
   }
 }

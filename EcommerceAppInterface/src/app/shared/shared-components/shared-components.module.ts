@@ -25,6 +25,7 @@ import {IsActivePipe} from "../../pipes/is-active.pipe";
 import {AppModule} from "../../app.module";
 import { IsActiveStatusComponent } from './is-active-status/is-active-status.component';
 import {PipesModule} from "../../pipes/pipes.module";
+import {CustomAlertDialogComponent} from "./custom-alert-dialog/custom-alert-dialog.component";
 
 
 
@@ -49,6 +50,7 @@ import {PipesModule} from "../../pipes/pipes.module";
     CustomModalForAddingDataComponent,
     CustomImageGridForModalComponent,
     IsActiveStatusComponent,
+    CustomAlertDialogComponent
   ],
   imports: [
     CommonModule,

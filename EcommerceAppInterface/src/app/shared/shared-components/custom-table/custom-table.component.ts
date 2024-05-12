@@ -77,7 +77,7 @@ export class CustomTableComponent  implements OnInit,AfterViewInit{
   }
   delete(row:any,column:any){
     let id  = this.idScrapper(row,column);
-    console.log(id);
+    this.deleteData.emit(id);
   }
 
   refresh(){

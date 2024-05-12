@@ -11,8 +11,6 @@ export class CategoriesHandlerService {
   constructor(private categoriesService:CategoriesService,private localStorageService:LocalStorageService) { }
 
   public getAllCategories(){
-    let token = this.localStorageService.getItem("token")["JWTToken"];
-    console.log(token)
-    return this.categoriesService.getAll(ApiUrls.API_END_POINTS.Categories.GetAllCategories,token);
+    return this.categoriesService.getAll(ApiUrls.API_END_POINTS.Categories.GetAllCategories);
   }
 }

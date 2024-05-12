@@ -16,6 +16,7 @@ import {StorageService} from "../../../../services/firebase/storage.service";
 import {FileHandlerService} from "../../../../services/core/file-handler.service";
 import {FileUrl} from "../../../../interfaces/fileUrl";
 import {SpinnerFlagService} from "../../../../services/core/spinner-flag.service";
+import {CustomAlertDialogService} from "../../../../services/core/custom-alert-dialog.service";
 
 @Component({
   selector: 'app-product',
@@ -29,6 +30,7 @@ export class ProductComponent implements OnInit{
   private imageUrls:FileUrl[] = [];
   constructor(
     public adminProductHandlerService:AdminProductHandlerService,
+    public customAlertDialogService:CustomAlertDialogService,
     private adminCategoriesHandlerService:AdminCategoriesHandlerService,
     public fireStorage:StorageService,
     private spinnerService:SpinnerFlagService,
@@ -148,6 +150,45 @@ export class ProductComponent implements OnInit{
     console.log(id);
   }
 
+  deleteProducts(id:number){
+    // this.adminProductHandlerService.
+    this.customAlertDialogService.openDialog("Product","product","0.0ms","0.0ms",() =>{
+      this.adminProductHandlerService.deleteProduct(id).subscribe((data:any)=>{
+        if(data["Message"] == "Success"){
+          this.toastr.success("Product Deleted Successfully");
+          this.getProducts();
+        }else{
+          this.toastr.error(data["Data"]["message"]);
+        }
+      });
+      // this.deleteImagesFromFireStorage(id).then(() => {
+      //   this.adminProductHandlerService.deleteProduct(id).subscribe((data:any)=>{
+      //     if(data["Message"] == "Success"){
+      //       this.toastr.success("Product Deleted Successfully");
+      //       this.getProducts();
+      //     }else{
+      //       this.toastr.error(data["Data"]["message"]);
+      //     }
+      //   });
+      // })
+    });
+  }
+
+  async deleteImagesFromFireStorage(id:number){
+    await this.adminProductHandlerService.getProduct(id).subscribe((data:any)=>{
+      if(data["Message"] == "Success"){
+        console.log(data["Data"]["Image"])
+        let dataImageList = data["Data"]["Image"].split(",")
+        dataImageList.forEach((data:any) => {
+          this.fireStorage.delete(data).then(() => {
+            console.log('File deleted')
+          })
+        })
+      }else{
+        this.toastr.error(data["Data"]["message"]);
+      }
+    });
+  }
   refresh(){
     this.getProducts();
   }

@@ -20,13 +20,14 @@ export class ApiUrls{
     Products:{
       GetProductByCid:"GetProductByCid",
       GetProducts:"GetProducts",
+      GetProduct:"GetProduct",
       AddProduct:"AddProduct",
       UpdateProduct:"UpdateProduct",
       DeleteProduct:"DeleteProduct"
     },
     Categories :{
       GetAllCategories:"GetAllCategories"
-    }        
+    }
   };
 
   public static apiEndPointWithId(endPoint:any,id:any): string {

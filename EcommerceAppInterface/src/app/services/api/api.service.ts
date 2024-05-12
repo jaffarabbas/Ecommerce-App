@@ -22,47 +22,32 @@ export class ApiService<T> {
 
   constructor(private http: HttpClient) {}
 
-  private createRequestOptions(token?: string): { headers: HttpHeaders } {
-    let headers = new HttpHeaders();
-    if (token) {
-      console.log('token: ', token)
-      headers = headers.set('Authorization', `Bearer ${token}`);
-    }
-    return { headers };
+  getAll(endPoint: string): Observable<T[]> {
+    return this.http.get<T[]>(this.apiUrlWithController + endPoint);
   }
 
-  getAll(endPoint: string, token?: string): Observable<T[]> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.get<T[]>(this.apiUrlWithController + endPoint, requestOptions);
-  }
-
-  getOne(endPoint: string, token?: string): Observable<T> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.get<T>(this.apiUrlWithController + endPoint, requestOptions);
+  getOne(endPoint: string): Observable<T> {
+    return this.http.get<T>(this.apiUrlWithController + endPoint);
   }
 
   getAllById(id: any, endPoint: string, token?: string): Observable<T[]> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.get<T[]>(`${this.apiUrlWithController + endPoint}/${id}`, requestOptions);
+    return this.http.get<T[]>(`${this.apiUrlWithController + endPoint}/${id}`);
   }
 
   getById(id: any, endPoint: string, token?: string): Observable<T> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.get<T>(`${this.apiUrlWithController + endPoint}/${id}`, requestOptions);
+    return this.http.get<T>(`${this.apiUrlWithController + endPoint}/${id}`);
   }
 
   create(item: T, endPoint: string, token?: string): Observable<T> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.post<T>(this.apiUrlWithController + endPoint, item, requestOptions).pipe(
+    return this.http.post<T>(this.apiUrlWithController + endPoint, item).pipe(
       tap(() => {
         this.refreshApi.next();
       })
     );
   }
 
-  update(value: T, id: any, endPoint: string, token?: string): Observable<T> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.put<T>(`${this.apiUrlWithController + endPoint}/${id}`, value, requestOptions).pipe(
+  update(value: T, id: any, endPoint: string): Observable<T> {
+    return this.http.put<T>(`${this.apiUrlWithController + endPoint}/${id}`, value).pipe(
       tap(() => {
         this.refreshApi.next();
       })
@@ -70,8 +55,7 @@ export class ApiService<T> {
   }
 
   updateByData(value: T, endPoint: string, token?: string): Observable<T> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.put<T>(this.apiUrlWithController + endPoint, value, requestOptions).pipe(
+    return this.http.put<T>(this.apiUrlWithController + endPoint, value).pipe(
       tap(() => {
         this.refreshApi.next();
       })
@@ -79,13 +63,11 @@ export class ApiService<T> {
   }
 
   remove(value: T, id: any, endPoint: string, token?: string): Observable<T> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.put<T>(`${this.apiUrlWithController + endPoint}/${id}`, value, requestOptions);
+    return this.http.put<T>(`${this.apiUrlWithController + endPoint}/${id}`, value);
   }
-  
+
   delete(id: number, endPoint: string, token?: string): Observable<any> {
-    const requestOptions = this.createRequestOptions(token);
-    return this.http.delete(`${this.apiUrlWithController + endPoint}/${id}`, requestOptions).pipe(
+    return this.http.delete(`${this.apiUrlWithController + endPoint}/${id}`).pipe(
       tap(() => {
         this.refreshApi.next();
       })

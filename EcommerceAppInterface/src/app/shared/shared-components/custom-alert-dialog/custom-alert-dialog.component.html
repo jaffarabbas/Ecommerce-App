@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Delete {{heading}}</h2>
+<mat-dialog-content>
+  Would you like to delete this {{subHeading}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="primary">No</button>
+  <button mat-raised-button mat-dialog-close cdkFocusInitial color="primary" (click)="callbackFunction()">Ok</button>
+</mat-dialog-actions>
