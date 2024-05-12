@@ -19,6 +19,7 @@ import { USE_EMULATOR as USE_STORAGE_EMULATOR } from '@angular/fire/compat/stora
 import { IsActivePipe } from './pipes/is-active.pipe';
 import {PipesModule} from "./pipes/pipes.module";
 import { tokenInterceptor } from './interceptor/token.interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { tokenInterceptor } from './interceptor/token.interceptor';
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     provideHttpClient(withInterceptors([tokenInterceptor])),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
