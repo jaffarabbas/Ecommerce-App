@@ -17,6 +17,10 @@ import {FileHandlerService} from "../../../../services/core/file-handler.service
 import {FileUrl} from "../../../../interfaces/fileUrl";
 import {SpinnerFlagService} from "../../../../services/core/spinner-flag.service";
 import {CustomAlertDialogService} from "../../../../services/core/custom-alert-dialog.service";
+import {
+  CustomModalForDetailDataComponent
+} from "../../../../shared/shared-components/custom-modal-for-detail-data/custom-modal-for-detail-data.component";
+import {detailViewData} from "../../../../interfaces/detailViewData";
 
 @Component({
   selector: 'app-product',
@@ -26,6 +30,7 @@ import {CustomAlertDialogService} from "../../../../services/core/custom-alert-d
 export class ProductComponent implements OnInit{
   dataSource!: MatTableDataSource<Product>;
   tableColumnData!:tableColumnData[];
+  detailMetaData!:detailViewData[];
   categories!:DropdownItems[];
   private imageUrls:FileUrl[] = [];
   constructor(
@@ -59,6 +64,18 @@ export class ProductComponent implements OnInit{
       {id:"9",label:"Image",type:"image",property:"Image",formController:{isInForm:true,formType:"file",validation:{required:false}}},
       {id:"10",label:"Action",type:"btngroup",property:"[Pid]",formController:{isInForm:false}}
     ];
+  }
+
+  initialzeDetailMetaData(){
+    this.detailMetaData = [
+      {id:1,name:"Product ID",type:"string",property:"single",dbName:"Pid"},
+      {id:2,name:"Name",type:"string",property:"single",dbName:"Name"},
+      {id:3,name:"Description",type:"string",property:"single",dbName:"Description"},
+      {id:3,name:"Category",type:"string",property:"single",dbName:"CName",parentDbName:'CidNavigation',isDbHierarchy:true},
+      {id:4,name:"Quantity",type:"number",property:"single",dbName:"Quantity"},
+      {id:5,name:"Price",type:"float",property:"single",dbName:"Price"},
+      {id:6,name:"Image",type:"image",property:"list",dbName:"Image"},
+    ]
   }
 
   getProducts(){
@@ -144,7 +161,15 @@ export class ProductComponent implements OnInit{
   }
 
   details(id:number){
-    console.log(id);
+    this.adminProductHandlerService.getProduct(id).subscribe((data:any)=>{
+      if(data["Message"] == "Success"){
+        console.log(data["Data"])
+        // this.openDetailModal(data["Data"])
+      }else{
+        this.toastr.error(data["Data"]["message"]);
+      }
+    })
+    // this.openDetailModal()
   }
   editProducts(id:number){
     console.log(id);
@@ -184,7 +209,6 @@ export class ProductComponent implements OnInit{
   refresh(){
     this.getProducts();
   }
-
   openAddModal(){
     const dialogRef = this.matDialog.open(CustomModalForAddingDataComponent, {
       data: {
@@ -195,6 +219,19 @@ export class ProductComponent implements OnInit{
 
     dialogRef.componentInstance.formSubmitted.subscribe((formData) => {
       this.onSubmit(formData);
+    });
+  }
+
+  openDetailModal(data:Product){
+    const dialogRef = this.matDialog.open(CustomModalForDetailDataComponent, {
+      data: {
+        heading: "Product Details",
+        data: data,
+        metaData: {
+          model:"product",
+          metaData: this.detailMetaData
+        }
+      },
     });
   }
 
