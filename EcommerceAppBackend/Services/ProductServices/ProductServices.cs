@@ -31,9 +31,21 @@ namespace EcommerceAppBackend.Services.ProductServices
             return result != null ? true : false;
         }
 
-        public async Task<Dtos.Product> GetProductAsync(int id)
+        public async Task<Dtos.Product?> GetProductAsync(int id)
         {
-            return await _context.Products?.Where(x => x.Pid == id)?.Select(x => _mapper.Map<Dtos.Product>(x))?.FirstOrDefaultAsync()!;
+            var product = await _context.Products
+                                .Include(p => p.CidNavigation) // Include the related category
+                                .FirstOrDefaultAsync(x => x.Pid == id);
+
+            if (product == null)
+            {
+                return null; // or throw an exception, depending on your error handling strategy
+            }
+
+            var productDto = _mapper.Map<Dtos.Product>(product);
+            productDto.CidNavigation = _mapper.Map<Dtos.Category>(product.CidNavigation);
+
+            return productDto;
         }
 
         public async Task<IEnumerable<Dtos.Product>> GetProductByCIDAsync(int id)
