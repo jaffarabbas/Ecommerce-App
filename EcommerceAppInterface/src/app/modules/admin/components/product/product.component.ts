@@ -48,6 +48,8 @@ export class ProductComponent implements OnInit{
     this.dataSource = new MatTableDataSource<Product>();
     this.getCategories();
     this.initializeTableColumnData();
+    this.initialzeDetailMetaData();
+    console.log("asdasd")
     this.getProducts();
   }
 
@@ -163,13 +165,11 @@ export class ProductComponent implements OnInit{
   details(id:number){
     this.adminProductHandlerService.getProduct(id).subscribe((data:any)=>{
       if(data["Message"] == "Success"){
-        console.log(data["Data"])
-        // this.openDetailModal(data["Data"])
+        this.openDetailModal(data["Data"])
       }else{
         this.toastr.error(data["Data"]["message"]);
       }
     })
-    // this.openDetailModal()
   }
   editProducts(id:number){
     console.log(id);
@@ -228,7 +228,7 @@ export class ProductComponent implements OnInit{
         heading: "Product Details",
         data: data,
         metaData: {
-          model:"product",
+          modal:"product",
           metaData: this.detailMetaData
         }
       },

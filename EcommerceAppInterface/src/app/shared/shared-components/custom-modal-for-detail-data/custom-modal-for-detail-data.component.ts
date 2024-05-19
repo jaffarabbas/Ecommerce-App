@@ -32,17 +32,20 @@ import {detailViewData} from "../../../interfaces/detailViewData";
 export class CustomModalForDetailDataComponent implements OnInit{
   heading:string = "";
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+
   }
   setHeading() {
     this.heading = this.data.heading;
   }
 
   setData(data:any,modal:string,metaData:detailViewData){
-
+    console.log(data)
+    console.log(metaData)
+    console.log(modal)
   }
 
   ngOnInit(): void {
     this.setHeading()
-    //this.setData(this.data.data)
+    this.setData(this.data.data,this.data.modal,this.data.metaData)
   }
 }
