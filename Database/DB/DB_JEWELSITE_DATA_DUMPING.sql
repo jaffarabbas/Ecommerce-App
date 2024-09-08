@@ -22,4 +22,6 @@ INSERT INTO USERS (firstname,lastname,email,password,acid) VALUES('t','t','abc@a
 
 select * from Product 
 
+SELECT * FROM USERS
+
 update PRODUCT set image = 'assets/images/productPic1.png'
