@@ -6130,34 +6130,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DARKLORD\\.nuget\\packages\\": {}
+    "/home/darklord/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
+      "projectUniqueName": "/home/darklord/Desktop/Github/Ecommerce-App/EcommerceAppBackend/EcommerceAppBackend.csproj",
       "projectName": "EcommerceAppBackend",
-      "projectPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\EcommerceAppBackend.csproj",
-      "packagesPath": "C:\\Users\\DARKLORD\\.nuget\\packages\\",
-      "outputPath": "J:\\GitHub\\Ecommerce-App\\EcommerceAppBackend\\obj\\",
+      "projectPath": "/home/darklord/Desktop/Github/Ecommerce-App/EcommerceAppBackend/EcommerceAppBackend.csproj",
+      "packagesPath": "/home/darklord/.nuget/packages/",
+      "outputPath": "/home/darklord/Desktop/Github/Ecommerce-App/EcommerceAppBackend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DARKLORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/darklord/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj": {
-              "projectPath": "J:\\GitHub\\Ecommerce-App\\CustomMiddlewareProject\\CustomMiddlewareCollection.csproj"
+            "/home/darklord/Desktop/Github/Ecommerce-App/CustomMiddlewareProject/CustomMiddlewareCollection.csproj": {
+              "projectPath": "/home/darklord/Desktop/Github/Ecommerce-App/CustomMiddlewareProject/CustomMiddlewareCollection.csproj"
             }
           }
         }
@@ -6244,7 +6242,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

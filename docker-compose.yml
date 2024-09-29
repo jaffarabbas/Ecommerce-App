@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  mssql-server:
+      image: mcr.microsoft.com/mssql/server:2022-latest
+      container_name: mssql-server
+      ports:
+        - "1433:1433"
+      environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=${SA_PASSWORD}
+      volumes:
+        - mssql-api_sqlserver_data:/var/opt/mssql
+      networks:
+        - darklord
+      tty: true
+      stdin_open: true
+
+  ecommerceappbackend:
+    build:
+      context: .
+      dockerfile: EcommerceAppBackend/Dockerfile  # Make sure the Dockerfile is in the same directory
+    container_name: ecommerceappbackend
+    ports:
+      - "8080:8080"
+    networks:
+      - darklord
+    volumes:
+      - mssql-api_sqlserver_data:/var/opt/mssql  # Optional, if your app needs to access the SQL Server data
+    depends_on:
+      - mssql-server
+    tty: true
+    stdin_open: true
+
+networks:
+  darklord:
+    external: true
+    name: darklord
+
+volumes:
+  mssql-api_sqlserver_data:
+    external: true
+    name: mssql-api_sqlserver_data
