@@ -95,3 +95,5 @@ $RECYCLE.BIN/
 # environment file
 .env
 environments
+
+*.env
