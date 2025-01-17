@@ -146,6 +146,19 @@ namespace EcommerceAppBackend.Controllers
         #endregion
 
         #region crud for user
+        
+        [HttpGet("Test")]
+        public async Task<IActionResult> Test()
+        {
+            try
+            {
+                return new ApiHitResponse("Hello World", ApiResponseMessages.success, ApiStatusCodes.OK);
+            }
+            catch (Exception error)
+            {
+                return new ApiHitResponse(ExceptionRefractor.ExceptionMessage(error), ApiResponseMessages.Error, ApiStatusCodes.InternalServerError);
+            }
+        }
 
         [HttpGet("GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
